@@ -1,6 +1,7 @@
 {
+  "framework": null,
   "rewrites": [
-    { "source": "/bingli", "destination": "/bingli.html" },
-    { "source": "/code3", "destination": "/code3.html" }
+    { "source": "/mianyi", "destination": "/bingli.html" },
+    { "source": "/yiyongxinli", "destination": "/code3.html" }
   ]
 }
