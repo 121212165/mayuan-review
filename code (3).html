@@ -1,0 +1,2433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医学心理学 · 复习手册</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf7f0;
+    --bg-warm: #f5f0e6;
+    --surface: #ffffff;
+    --surface-hover: #fefcf8;
+    --text: #2c2418;
+    --text-muted: #8a7e6d;
+    --border: #e8e0d0;
+    --shadow: rgba(60, 45, 20, 0.06);
+    --accent: #c05529;
+    --accent-light: #fdf0ea;
+    --gold: #b8860b;
+    --gold-light: #fdf6e3;
+    --green: #2d7a4f;
+    --green-light: #eef7f1;
+    --blue: #3a6b8c;
+    --blue-light: #edf4f8;
+    --purple: #6b4c8c;
+    --purple-light: #f3eef8;
+    --red: #a0342e;
+    --red-light: #fcedec;
+    --teal: #2a7a7a;
+    --teal-light: #ebf5f5;
+    --brown: #7a5c3a;
+    --brown-light: #f7f0e8;
+    --pink: #a0486a;
+    --pink-light: #faf0f4;
+    --navy: #3a4a6b;
+    --navy-light: #eef1f6;
+    --olive: #5a7a3a;
+    --olive-light: #f1f5eb;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: 'Noto Serif SC', 'Songti SC', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.85;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── Header ─── */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 247, 240, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .site-title {
+    font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    font-size: 1.25rem;
+    color: var(--accent);
+    white-space: nowrap;
+    letter-spacing: 0.08em;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .search-box {
+    position: relative;
+  }
+
+  .search-box input {
+    width: 220px;
+    padding: 0.4rem 0.7rem 0.4rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .search-box input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(192, 85, 41, 0.1);
+  }
+
+  .search-box::before {
+    content: '🔍';
+    position: absolute;
+    left: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    pointer-events: none;
+  }
+
+  .header-btn {
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    font-size: 0.78rem;
+    font-family: inherit;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .header-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .header-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  .kbd {
+    display: inline-block;
+    font-size: 0.65rem;
+    padding: 0.05em 0.35em;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--bg-warm);
+    color: var(--text-muted);
+    font-family: 'DM Mono', monospace;
+    margin-left: 0.3em;
+    vertical-align: middle;
+  }
+
+  /* ─── Layout ─── */
+  .layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── Sidebar ─── */
+  .sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 55px;
+    height: calc(100vh - 55px);
+    overflow-y: auto;
+    padding: 1.5rem 0.8rem 2rem;
+    border-right: 1px solid var(--border);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .sidebar-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+    padding: 0 0.5rem;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    margin-bottom: 2px;
+    text-decoration: none;
+  }
+
+  .nav-item:hover {
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  .nav-item.active {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+
+  .nav-count {
+    margin-left: auto;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+  }
+
+  .sidebar-stats {
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    background: var(--surface);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .stats-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .stats-bar {
+    height: 6px;
+    background: var(--bg-warm);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
+  }
+
+  .stats-fill {
+    height: 100%;
+    background: var(--green);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
+
+  .stats-text {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  /* ─── Main ─── */
+  .main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 1.5rem 2rem 4rem;
+  }
+
+  /* ─── Chapter ─── */
+  .chapter {
+    margin-bottom: 3rem;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .chapter-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid;
+  }
+
+  .chapter-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    color: #fff;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .chapter-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── Card ─── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 20px var(--shadow);
+    border-color: #d8d0c0;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .card-head:hover {
+    background: var(--surface-hover);
+  }
+
+  .card-head-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-tag {
+    font-size: 0.65rem;
+    padding: 0.15em 0.5em;
+    border-radius: 3px;
+    font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+  }
+
+  .card-label {
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .card-expand {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+    flex-shrink: 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  .card.open .card-expand {
+    transform: rotate(180deg);
+  }
+
+  .card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+
+  .card.open .card-body {
+    max-height: 3000px;
+    padding: 0 1.2rem 1rem;
+  }
+
+  .card-content {
+    border-top: 1px dashed var(--border);
+    padding-top: 0.8rem;
+  }
+
+  /* ─── Content Styles ─── */
+  .def-term {
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .keyword {
+    background: linear-gradient(to bottom, transparent 60%, rgba(192,85,41,0.15) 60%);
+    font-weight: 700;
+    padding: 0 2px;
+  }
+
+  .principle {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .page-ref {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+    margin-left: 0.3em;
+  }
+
+  .list-styled {
+    list-style: none;
+    padding: 0;
+  }
+
+  .list-styled li {
+    position: relative;
+    padding-left: 1.4em;
+    margin-bottom: 0.35rem;
+  }
+
+  .list-styled li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+
+  .sub-list {
+    list-style: none;
+    padding-left: 0.5rem;
+    margin-top: 0.2rem;
+  }
+
+  .sub-list li {
+    padding-left: 1.2em;
+    font-size: 0.9rem;
+    color: #5a4a38;
+  }
+
+  .sub-list li::before {
+    width: 4px;
+    height: 4px;
+    opacity: 0.35;
+  }
+
+  .example {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.4rem 0.8rem;
+    border-left: 3px solid var(--border);
+    margin: 0.4rem 0;
+    background: var(--bg-warm);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ─── Table ─── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 0.6rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  .styled-table th {
+    background: var(--bg-warm);
+    font-weight: 700;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .styled-table td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .styled-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .styled-table tr:hover td {
+    background: var(--surface-hover);
+  }
+
+  /* ─── Mnemonic box ─── */
+  .mnemonic {
+    background: var(--gold-light);
+    border: 1px dashed var(--gold);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+  }
+
+  .mnemonic::before {
+    content: '💡 口诀';
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── Hide/Reveal (Flashcard mode) ─── */
+  .hide-answer .card-body {
+    display: none !important;
+  }
+
+  .hide-answer .card-expand {
+    display: none;
+  }
+
+  .reveal-btn {
+    display: none;
+    margin: 0.6rem 0;
+    padding: 0.4rem 1rem;
+    border: 1px dashed var(--accent);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--accent);
+    font-family: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .hide-answer .reveal-btn {
+    display: inline-block;
+  }
+
+  .reveal-btn:hover {
+    background: var(--accent-light);
+  }
+
+  /* ─── Mastered mark ─── */
+  .mastered .card {
+    opacity: 0.55;
+  }
+
+  .mastered .card::after {
+    content: '✓ 已掌握';
+    position: absolute;
+    top: 0.6rem;
+    right: 0.8rem;
+    font-size: 0.65rem;
+    color: var(--green);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .card {
+    position: relative;
+  }
+
+  .master-btn {
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: transparent;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .master-btn:hover {
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  .master-btn.done {
+    background: var(--green);
+    border-color: var(--green);
+    color: #fff;
+  }
+
+  /* ─── Flashcard ─── */
+  .flashcard-section {
+    display: none;
+    padding: 2rem 0;
+  }
+
+  .flashcard-section.active {
+    display: block;
+  }
+
+  .flashcard {
+    max-width: 600px;
+    margin: 0 auto;
+    perspective: 1000px;
+    cursor: pointer;
+    height: 320px;
+  }
+
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  .flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flashcard-front,
+  .flashcard-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 40px var(--shadow);
+  }
+
+  .flashcard-front {
+    background: linear-gradient(135deg, #fff 0%, var(--bg-warm) 100%);
+    border: 1px solid var(--border);
+  }
+
+  .flashcard-back {
+    background: linear-gradient(135deg, var(--accent-light) 0%, #fff 100%);
+    border: 1px solid rgba(192,85,41,0.2);
+    transform: rotateY(180deg);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    overflow-y: auto;
+  }
+
+  .flashcard-q {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .flashcard-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+  }
+
+  .flashcard-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .flashcard-nav button {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text);
+  }
+
+  .flashcard-nav button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .flashcard-counter {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  /* ─── View modes ─── */
+  .main-content.flashcard-mode .chapter,
+  .main-content.flashcard-mode .intro-text {
+    display: none;
+  }
+
+  .main-content.flashcard-mode .flashcard-section {
+    display: block;
+  }
+
+  /* ─── Animations ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .chapter:nth-child(2)  { animation-delay: 0.05s; }
+  .chapter:nth-child(3)  { animation-delay: 0.1s; }
+  .chapter:nth-child(4)  { animation-delay: 0.15s; }
+  .chapter:nth-child(5)  { animation-delay: 0.2s; }
+  .chapter:nth-child(6)  { animation-delay: 0.25s; }
+  .chapter:nth-child(7)  { animation-delay: 0.3s; }
+  .chapter:nth-child(8)  { animation-delay: 0.35s; }
+  .chapter:nth-child(9)  { animation-delay: 0.4s; }
+  .chapter:nth-child(10) { animation-delay: 0.45s; }
+  .chapter:nth-child(11) { animation-delay: 0.5s; }
+
+  /* ─── Highlight search ─── */
+  mark {
+    background: rgba(184, 134, 11, 0.2);
+    color: inherit;
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+
+  .card.search-hidden {
+    display: none;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 860px) {
+    .sidebar { display: none; }
+    .main-content { padding: 1rem; }
+    .search-box input { width: 150px; }
+    .site-title { font-size: 1rem; }
+    .header-controls { gap: 0.3rem; }
+    .header-btn span.btn-label { display: none; }
+  }
+
+  @media (max-width: 500px) {
+    .site-header { padding: 0.5rem 0.8rem; }
+    .search-box input { width: 120px; }
+  }
+
+  /* ─── Print ─── */
+  @media print {
+    .site-header, .sidebar, .master-btn, .reveal-btn, .card-expand, .flashcard-section { display: none !important; }
+    .card-body { max-height: none !important; padding: 0.5rem 1rem !important; }
+    .card { break-inside: avoid; border: 1px solid #ccc; }
+    body { background: #fff; }
+  }
+
+  /* ─── Scrollbar ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #c8c0b0; }
+
+  /* ─── Tooltip ─── */
+  .shortcut-hint {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    box-shadow: 0 4px 20px var(--shadow);
+    z-index: 50;
+    line-height: 2;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+  }
+
+  .shortcut-hint.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .shortcut-hint .kbd {
+    margin-right: 0.3em;
+    margin-left: 0;
+  }
+
+  .intro-text {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-title">医学心理学 · 复习手册</div>
+  <div class="header-controls">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="搜索知识点…">
+    </div>
+    <button class="header-btn" id="btnExpandAll" onclick="toggleAll()">
+      <span class="btn-label">全部展开</span> ↕
+    </button>
+    <button class="header-btn" id="btnFlashcard" onclick="toggleFlashcard()">
+      <span class="btn-label">闪卡模式</span> 🃏
+    </button>
+    <button class="header-btn" id="btnHideAnswer" onclick="toggleHideAnswer()">
+      <span class="btn-label">遮盖模式</span> 👁
+    </button>
+    <button class="header-btn" id="btnMastered" onclick="toggleShowMastered()">
+      <span class="btn-label">已掌握</span> ✓
+    </button>
+    <button class="header-btn" onclick="toggleShortcuts()">⌨</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">目录导航</div>
+    <nav id="nav"></nav>
+    <div class="sidebar-stats" id="statsPanel">
+      <div class="stats-label">学习进度</div>
+      <div class="stats-bar"><div class="stats-fill" id="statsFill" style="width:0%"></div></div>
+      <div class="stats-text" id="statsText">0 / 0 已掌握</div>
+    </div>
+  </aside>
+
+  <main class="main-content" id="mainContent">
+    <div class="flashcard-section" id="flashcardArea">
+      <div class="flashcard-counter" id="flashcardCounter"></div>
+      <div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+        <div class="flashcard-inner">
+          <div class="flashcard-front">
+            <div class="flashcard-q" id="fcFront">问题加载中…</div>
+            <div class="flashcard-hint">点击翻转查看答案</div>
+          </div>
+          <div class="flashcard-back" id="fcBack">答案加载中…</div>
+        </div>
+      </div>
+      <div class="flashcard-nav">
+        <button onclick="fcPrev()">← 上一题</button>
+        <button onclick="fcFlip()">翻转</button>
+        <button onclick="fcNext()">下一题 →</button>
+      </div>
+    </div>
+
+    <!-- Chapter 1 -->
+    <section class="chapter" id="ch1" data-ch="1" data-color="var(--accent)">
+      <div class="chapter-header" style="border-color: var(--accent);">
+        <span class="chapter-num" style="background:var(--accent);">第一章</span>
+        <span class="chapter-title">绪论</span>
+      </div>
+
+      <div class="card" data-qa="医学心理学的定义|医学心理学是医学和心理学相结合的学科，它将心理学的理论和技术应用于医学领域，研究心理社会因素在人类健康和疾病及其相互转化过程中的作用及规律，解决健康和疾病相关的心理行为问题。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--accent-light);color:var(--accent);">名词</span>
+            <span class="card-label">医学心理学</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)" title="标记已掌握">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <span class="def-term">医学心理学</span>是<span class="keyword">医学和心理学相结合</span>的学科，它将心理学的理论和技术应用于医学领域，研究<span class="keyword">心理社会因素</span>在人类健康和疾病及其相互转化过程中的作用及规律，解决健康和疾病相关的心理行为问题。<span class="page-ref">P1</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="生物-心理-社会医学模式|不仅从个体的局部，而且从人的整体以及群体、生态系统研究健康与疾病，这种系统论和整体观的医学模式就是生物-心理-社会医学模式。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--accent-light);color:var(--accent);">概念</span>
+            <span class="card-label">生物-心理-社会医学模式</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          不仅从个体的局部，而且从人的<span class="keyword">整体</span>以及<span class="keyword">群体、生态系统</span>研究健康与疾病，这种<span class="keyword">系统论和整体观</span>的医学模式就是生物-心理-社会医学模式。<span class="page-ref">P7</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Chapter 2 -->
+    <section class="chapter" id="ch2" data-ch="2" data-color="var(--gold)">
+      <div class="chapter-header" style="border-color:var(--gold);">
+        <span class="chapter-num" style="background:var(--gold);">第二章</span>
+        <span class="chapter-title">主要理论流派</span>
+      </div>
+
+      <div class="card" data-qa="弗洛伊德人格结构理论|本我遵循快乐原则，自我遵循现实原则，超我遵循至善原则。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--gold-light);color:var(--gold);">理论</span>
+            <span class="card-label">人格结构理论（弗洛伊德）</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <div class="table-wrap"><table class="styled-table">
+            <tr><th>结构</th><th>遵循原则</th></tr>
+            <tr><td><span class="keyword">本我</span></td><td><span class="principle">快乐原则</span></td></tr>
+            <tr><td><span class="keyword">自我</span></td><td><span class="principle">现实原则</span></td></tr>
+            <tr><td><span class="keyword">超我</span></td><td><span class="principle">至善原则</span></td></tr>
+          </table></div>
+          <div class="mnemonic">本快自现超至善（本我快乐、自我现实、超我至善）</div>
+          <span class="page-ref">P17</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="弗洛伊德性心理发展阶段|口唇期(0-1岁)、肛门期(1-3岁)、生殖器期(3-6岁)、潜伏期(6-12/13岁)、两性期(青春期以后)">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--gold-light);color:var(--gold);">理论</span>
+            <span class="card-label">性心理发展阶段理论</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <div class="table-wrap"><table class="styled-table">
+            <tr><th>阶段</th><th>年龄</th></tr>
+            <tr><td><span class="keyword">口唇期</span></td><td>0~1岁</td></tr>
+            <tr><td><span class="keyword">肛门期</span></td><td>1~3岁</td></tr>
+            <tr><td><span class="keyword">生殖器期</span></td><td>3~6岁</td></tr>
+            <tr><td><span class="keyword">潜伏期</span></td><td>6~12/13岁</td></tr>
+            <tr><td><span class="keyword">两性期</span></td><td>青春期以后</td></tr>
+          </table></div>
+          <div class="mnemonic">口肛生殖潜两性（口1肛3生殖6，潜伏到13，两性在后头）</div>
+          <span class="page-ref">P18</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="心理防御机制|否认：无意识拒绝承认不愉快现实。投射：将自己不能接受的思绪赋予别人。退行：退回到儿童时期。合理化：用站不住脚的理由为自己辩护（酸葡萄、甜柠檬）。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--gold-light);color:var(--gold);">重点</span>
+            <span class="card-label">心理防御机制理论</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">否认</span>：无意识地拒绝承认那些不愉快的现实以保护自我、减轻痛苦，是最<span class="keyword">原始、最简单</span>的心理防御机制。
+              <div class="example">例如：癌症病人否认自己患了癌症；妻子不相信丈夫突然意外身亡</div>
+            </li>
+            <li><span class="keyword">投射</span>：主观地将属于自己的但不能接受的思绪、动机、欲望或情感，赋予到别人身上，推卸责任或归咎于他人。
+              <div class="example">例如："以小人之心度君子之腹"；对人常怀敌意的人说别人都不友好</div>
+            </li>
+            <li><span class="keyword">退行</span>：当个体受到严重挫折时，放弃成人方式，退回到儿童时期，使用原先比较幼稚的方式应对困境，恢复对别人的依赖。
+              <div class="example">例如：成年癔症病人表现出"童样痴呆"</div>
+            </li>
+            <li><span class="keyword">合理化</span>（文饰作用）：最常见的防御机制，通过似乎有理但实际上站不住脚的理由为自己辩护。
+              <ul class="sub-list">
+                <li><span class="keyword">酸葡萄心理</span>：把自己不具备或得不到的东西说成是不好的
+                  <div class="example">例：考试不及格就说老师出题太难</div>
+                </li>
+                <li><span class="keyword">甜柠檬心理</span>：把自己所拥有的一切都说成好的
+                  <div class="example">例：孩子智力迟钝，父母以"傻有傻福"自我安慰</div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <span class="page-ref">P19</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="马斯洛需要层次理论|生理需要、安全需要、社会交往的需要、尊重的需要、自我成就(自我实现)的需要。满足由低到高逐层实现，但不完全遵照全或无的原则。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--gold-light);color:var(--gold);">理论</span>
+            <span class="card-label">马斯洛需要层次理论</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <div class="table-wrap"><table class="styled-table">
+            <tr><th>层次</th><th>病人情境</th></tr>
+            <tr><td><span class="keyword">生理需要</span></td><td>最基本的需要，包括解除疾病痛苦和恢复身体健康</td></tr>
+            <tr><td><span class="keyword">安全需要</span></td><td>疾病本身是对安全需要的威胁，缺乏安全感，害怕独处</td></tr>
+            <tr><td><span class="keyword">社会交往需要</span></td><td>归属和爱的需要，尤其需要医护人员和亲人的关怀</td></tr>
+            <tr><td><span class="keyword">尊重的需要</span></td><td>需要得到人格的尊重，保护隐私</td></tr>
+            <tr><td><span class="keyword">自我实现需要</span></td><td>自我成就的需要</td></tr>
+          </table></div>
+          <ul class="list-styled" style="margin-top:0.5rem;">
+            <li>需要的满足<span class="keyword">由低到高逐层</span>实现</li>
+            <li>这种实现过程并不完全遵照<span class="keyword">全或无</span>的原则</li>
+          </ul>
+          <div class="mnemonic">生安社尊自（生理→安全→社交→尊重→自我实现）</div>
+          <span class="page-ref">P25 P177</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="认知行为理论代表人物|埃利斯理性情绪治疗理论、格拉瑟现实治疗理论、贝克认知疗法理论。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--gold-light);color:var(--gold);">理论</span>
+            <span class="card-label">认知行为理论</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">埃利斯</span> — 理性情绪治疗理论</li>
+            <li><span class="keyword">格拉瑟</span> — 现实治疗理论</li>
+            <li><span class="keyword">贝克</span> — 认知疗法理论</li>
+          </ul>
+          <span class="page-ref">P30</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Chapter 3 -->
+    <section class="chapter" id="ch3" data-ch="3" data-color="var(--green)">
+      <div class="chapter-header" style="border-color:var(--green);">
+        <span class="chapter-num" style="background:var(--green);">第三章</span>
+        <span class="chapter-title">心理学基础</span>
+      </div>
+
+      <div class="card" data-qa="感觉现象|适应（入芝兰之室久而不闻其香）、后像、感觉的相互作用、联觉。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--green-light);color:var(--green);">概念</span>
+            <span class="card-label">常见的感觉现象</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">适应</span>
+              <div class="example">"入芝兰之室，久而不闻其香；入鲍鱼之肆，久而不闻其臭"</div>
+            </li>
+            <li><span class="keyword">后像</span></li>
+            <li><span class="keyword">感觉的相互作用</span></li>
+            <li><span class="keyword">联觉</span></li>
+          </ul>
+          <span class="page-ref">P37</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="知觉的基本特性|选择性（两歧图形）、整体性、理解性、恒常性（有歧义选恒常性）。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--green-light);color:var(--green);">重点</span>
+            <span class="card-label">知觉的基本特性</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">知觉的选择性</span>（两歧图形/两可图）</li>
+            <li><span class="keyword">知觉的整体性</span></li>
+            <li><span class="keyword">知觉的理解性</span></li>
+            <li><span class="keyword">知觉的恒常性</span>（有歧义的选恒常性）</li>
+          </ul>
+          <div class="mnemonic">选整理恒（选择→整体→理解→恒常）</div>
+          <span class="page-ref">P38</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="按记忆保持时间分类|瞬时记忆、短时记忆（7±2个记忆单位）和长时记忆。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--green-light);color:var(--green);">概念</span>
+            <span class="card-label">记忆的分类</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          按记忆加工方式或保持时间长短分类：
+          <ul class="list-styled">
+            <li><span class="keyword">瞬时记忆</span></li>
+            <li><span class="keyword">短时记忆</span>（<span class="principle">7±2</span> 个记忆单位）</li>
+            <li><span class="keyword">长时记忆</span></li>
+          </ul>
+          <span class="page-ref">P41</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="遗忘规律|遗忘进程先快后慢（第一天遗忘最快），遗忘与记忆材料性质长度有关、与个体心理状态有关、与学习程度和学习方式有关。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--green-light);color:var(--green);">规律</span>
+            <span class="card-label">遗忘的规律</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li>遗忘进程<span class="keyword">先快后慢</span>（<span class="principle">第一天遗忘最快</span>）</li>
+            <li>遗忘的多少与记忆材料的<span class="keyword">性质和长度</span>有关</li>
+            <li>遗忘的多少与个体的<span class="keyword">心理状态</span>有关</li>
+            <li>遗忘与个体的<span class="keyword">学习程度和学习方式</span>有关</li>
+          </ul>
+          <span class="page-ref">P42</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="情绪的分类|心境：微弱、持久和弥漫性的情绪体验状态。激情。应激。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--green-light);color:var(--green);">概念</span>
+            <span class="card-label">情绪的分类</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">心境</span>：一种<span class="keyword">微弱、持久和弥漫性</span>的情绪体验状态</li>
+            <li><span class="keyword">激情</span></li>
+            <li><span class="keyword">应激</span></li>
+          </ul>
+          <span class="page-ref">P46</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="意志的品质|自觉性、果断性、坚韧性、自制性。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--green-light);color:var(--green);">重点</span>
+            <span class="card-label">意志的品质</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">自觉性</span></li>
+            <li><span class="keyword">果断性</span></li>
+            <li><span class="keyword">坚韧性</span></li>
+            <li><span class="keyword">自制性</span></li>
+          </ul>
+          <div class="mnemonic">自制坚果觉（自制性→坚韧性→果断性→自觉性）</div>
+          <span class="page-ref">P50</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="人格的定义|人格是指一个人的整个精神面貌，是具有一定倾向性、稳定的心理特征的总和。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--green-light);color:var(--green);">名词</span>
+            <span class="card-label">人格</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <span class="def-term">人格</span>是指一个人的<span class="keyword">整个精神面貌</span>，是具有<span class="keyword">一定倾向性、稳定</span>的心理特征的总和。<span class="page-ref">P51</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="动机冲突的基本形式|双趋冲突、双避冲突、趋避冲突、双重趋避冲突。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--green-light);color:var(--green);">概念</span>
+            <span class="card-label">动机冲突的基本形式</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">双趋冲突</span>（鱼和熊掌不可兼得）</li>
+            <li><span class="keyword">双避冲突</span>（前有狼后有虎）</li>
+            <li><span class="keyword">趋避冲突</span>（想吃又怕烫）</li>
+            <li><span class="keyword">双重趋避冲突</span></li>
+          </ul>
+          <span class="page-ref">P55</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="气质的类型|多血质、胆汁质、黏液质、抑郁质。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--green-light);color:var(--green);">重点</span>
+            <span class="card-label">气质的类型</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">多血质</span></li>
+            <li><span class="keyword">胆汁质</span></li>
+            <li><span class="keyword">黏液质</span></li>
+            <li><span class="keyword">抑郁质</span></li>
+          </ul>
+          <span class="page-ref">P58</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Chapter 4 -->
+    <section class="chapter" id="ch4" data-ch="4" data-color="var(--blue)">
+      <div class="chapter-header" style="border-color:var(--blue);">
+        <span class="chapter-num" style="background:var(--blue);">第四章</span>
+        <span class="chapter-title">心理发展与心理健康</span>
+      </div>
+
+      <div class="card" data-qa="埃里克森心理发展理论|婴儿期(0-1)信任vs不信任；婴幼儿期(1-3)自主vs羞耻怀疑；幼儿期(3-6)主动vs内疚(第一反抗期)；儿童期(6-12)勤奋vs自卑；青少年期(12-18)自我同一vs同一混乱(第二反抗期)；青年期(18-35)亲密vs孤独；成年中期(35-60)繁殖vs停滞；成年晚期(60+)自我整合vs绝望。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--blue-light);color:var(--blue);">重点</span>
+            <span class="card-label">埃里克森心理发展理论（八阶段）</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <div class="table-wrap"><table class="styled-table">
+            <tr><th>阶段</th><th>年龄</th><th>核心冲突</th><th>备注</th></tr>
+            <tr><td>婴儿期</td><td>出生~1岁</td><td><span class="keyword">信任感</span>对不信任感</td><td></td></tr>
+            <tr><td>婴幼儿期</td><td>1~3岁</td><td><span class="keyword">自主感</span>对羞耻感与怀疑感</td><td></td></tr>
+            <tr><td>幼儿期</td><td>3~6岁</td><td><span class="keyword">主动感</span>对内疚感</td><td><span class="principle">第一反抗期</span></td></tr>
+            <tr><td>儿童期</td><td>6~12岁</td><td><span class="keyword">勤奋感</span>对自卑感</td><td></td></tr>
+            <tr><td>青少年期</td><td>12~18岁</td><td><span class="keyword">自我同一感</span>对同一感混乱</td><td><span class="principle">第二反抗期</span></td></tr>
+            <tr><td>青年期</td><td>18~35岁</td><td><span class="keyword">亲密感</span>对孤独感</td><td></td></tr>
+            <tr><td>成年中期</td><td>35~60岁</td><td><span class="keyword">繁殖感</span>对停滞感</td><td></td></tr>
+            <tr><td>成年晚期</td><td>60岁后</td><td><span class="keyword">自我整合感</span>对绝望感</td><td></td></tr>
+          </table></div>
+          <div class="mnemonic">信自主勤同亲繁整（信任→自主→主动→勤奋→同一→亲密→繁殖→整合）；两个反抗期：3-6岁第一，12-18岁第二</div>
+          <span class="page-ref">P62</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="幼儿期心理健康维护与促进|促进语言发展；满足好奇心和独立愿望；促进玩耍与游戏；正确对待无理取闹和过失；父母言谈举止的表率作用。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--blue-light);color:var(--blue);">要点</span>
+            <span class="card-label">幼儿期心理健康维护与促进</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li>促进幼儿<span class="keyword">语言</span>的发展</li>
+            <li>满足幼儿的<span class="keyword">好奇心和独立愿望</span></li>
+            <li>促进幼儿<span class="keyword">玩耍与游戏</span></li>
+            <li>正确对待幼儿的<span class="keyword">无理取闹和过失</span></li>
+            <li>父母<span class="keyword">言谈举止的表率</span>作用</li>
+          </ul>
+          <span class="page-ref">P67</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Chapter 5 -->
+    <section class="chapter" id="ch5" data-ch="5" data-color="var(--purple)">
+      <div class="chapter-header" style="border-color:var(--purple);">
+        <span class="chapter-num" style="background:var(--purple);">第五章</span>
+        <span class="chapter-title">心理应激</span>
+      </div>
+
+      <div class="card" data-qa="应激的定义|应激是个体面临并觉察到环境变化对机体有威胁或挑战时做出的适应性和应对性反应的过程。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--purple-light);color:var(--purple);">名词</span>
+            <span class="card-label">应激</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <span class="def-term">应激</span>是个体面临并觉察到<span class="keyword">环境变化</span>对机体有<span class="keyword">威胁或挑战</span>时做出的<span class="keyword">适应性和应对性反应</span>的过程。<span class="page-ref">P75</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="精神心理障碍分类|急性应激障碍(ASD)：创伤性重现体验、回避与麻木、高度警觉，数分钟至数小时起病，2-3天缓解。创伤后应激障碍(PTSD)：回避与情感麻木，反复闯入性体验，数日至数月出现，症状持续存在。适应障碍。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--purple-light);color:var(--purple);">重点</span>
+            <span class="card-label">精神心理障碍</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <div class="table-wrap"><table class="styled-table">
+            <tr><th>类型</th><th>核心症状</th><th>起病/持续</th></tr>
+            <tr>
+              <td><span class="keyword">急性应激障碍(ASD)</span></td>
+              <td>创伤性重现体验、回避与麻木、高度警觉</td>
+              <td>数分钟至数小时起病，<span class="principle">2~3天</span>少达1个月余缓解</td>
+            </tr>
+            <tr>
+              <td><span class="keyword">创伤后应激障碍(PTSD)</span></td>
+              <td><span class="principle">回避与情感麻木</span>为核心；反复闯入性体验、过分警觉、易激惹</td>
+              <td>创伤后<span class="principle">数日至数月</span>出现，<span class="principle">症状持续存在</span></td>
+            </tr>
+            <tr>
+              <td><span class="keyword">适应障碍</span></td>
+              <td colspan="2">—</td>
+            </tr>
+          </table></div>
+          <span class="page-ref">P77</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="应激的心理中介因素|认知评价、应对方式、社会支持、人格特征。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--purple-light);color:var(--purple);">要点</span>
+            <span class="card-label">应激的心理中介因素</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li>（一）<span class="keyword">认知评价</span></li>
+            <li>（二）<span class="keyword">应对方式</span></li>
+            <li>（三）<span class="keyword">社会支持</span></li>
+            <li>（四）<span class="keyword">人格特征</span></li>
+          </ul>
+          <div class="mnemonic">认应社人（认知评价→应对方式→社会支持→人格特征）</div>
+          <span class="page-ref">P80</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Chapter 6 -->
+    <section class="chapter" id="ch6" data-ch="6" data-color="var(--red)">
+      <div class="chapter-header" style="border-color:var(--red);">
+        <span class="chapter-num" style="background:var(--red);">第六章</span>
+        <span class="chapter-title">心身疾病</span>
+      </div>
+
+      <div class="card" data-qa="心身疾病的定义|心身疾病是心理社会因素在疾病发生、发展与转归过程中起重要作用，有明确的病理基础且器官出现了形态学改变或组织改变。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--red-light);color:var(--red);">名词</span>
+            <span class="card-label">心身疾病</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <span class="def-term">心身疾病</span>：<span class="keyword">心理社会因素</span>在这类疾病的发生、发展与转归过程中起重要作用，有明确的<span class="keyword">病理基础</span>且器官出现了<span class="keyword">形态学改变或组织改变</span>。<span class="page-ref">P90</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="心身疾病的诊断原则|①疾病发生包括心理社会因素，与躯体症状有明确时间关系。②躯体症状有明确的器质性病理改变或已知的病理生理学变化。③排除精神、心理障碍。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--red-light);color:var(--red);">原则</span>
+            <span class="card-label">心身疾病的诊断原则</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li>①疾病的发生包括<span class="keyword">心理社会因素</span>，其与躯体症状有明确的<span class="keyword">时间关系</span></li>
+            <li>②躯体症状有明确的<span class="keyword">器质性病理改变</span>或存在已知的病理生理学变化</li>
+            <li>③<span class="keyword">排除</span>精神、心理障碍</li>
+          </ul>
+          <span class="page-ref">P94</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="心身疾病治疗原则|心身同治。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--red-light);color:var(--red);">原则</span>
+            <span class="card-label">心身疾病的治疗原则</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          心身疾病的治疗原则：<span class="principle">心身同治</span><span class="page-ref">P95</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="A型行为模式|有较高的成就欲望，富于挑战和竞争精神，容易发生无端敌意、争强好胜、不耐烦、有时间紧迫感。Friedman称其恼怒、激动、发怒和不耐烦为AIAI反应。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--red-light);color:var(--red);">概念</span>
+            <span class="card-label">A型行为模式</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          有较高的<span class="keyword">成就欲望</span>，富于<span class="keyword">挑战和竞争</span>精神，容易发生<span class="keyword">无端敌意、争强好胜、不耐烦、有时间紧迫感</span>等。Friedman称其<span class="keyword">恼怒、激动、发怒和不耐烦</span>为"<span class="principle">AIAI反应</span>"。<span class="page-ref">P98</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Chapter 7 -->
+    <section class="chapter" id="ch7" data-ch="7" data-color="var(--teal)">
+      <div class="chapter-header" style="border-color:var(--teal);">
+        <span class="chapter-num" style="background:var(--teal);">第七章</span>
+        <span class="chapter-title">异常心理</span>
+      </div>
+
+      <div class="card" data-qa="异常心理的定义|异常心理是指个体的心理过程和心理特征发生异常改变，大脑的结构或功能失调；或是指人对客观现实反映的紊乱和歪曲。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--teal-light);color:var(--teal);">名词</span>
+            <span class="card-label">异常心理</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <span class="def-term">异常心理</span>是指个体的心理过程和心理特征发生<span class="keyword">异常改变</span>，大脑的结构或功能失调；或是指人对客观现实反映的<span class="keyword">紊乱和歪曲</span>。<span class="page-ref">P105</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="心理学区分三原则|①主观世界与客观世界的统一性原则②心理活动的内在协调性原则③人格的相对稳定性原则。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--teal-light);color:var(--teal);">重点</span>
+            <span class="card-label">心理学区分三原则</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li>①<span class="keyword">主观世界与客观世界的统一性</span>原则</li>
+            <li>②<span class="keyword">心理活动的内在协调性</span>原则</li>
+            <li>③<span class="keyword">人格的相对稳定性</span>原则</li>
+          </ul>
+          <div class="mnemonic">主客人格三统一（主观客观统一、内在协调、人格稳定）</div>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="焦虑障碍|急性焦虑障碍(惊恐发作)：起病急骤，终止迅速，突然出现强烈的窒息感、濒死感和精神失控感，一般5-10分钟。广泛性焦虑障碍(慢性焦虑)：经常或持续的、无明确对象或固定内容的紧张不安。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--teal-light);color:var(--teal);">重点</span>
+            <span class="card-label">焦虑障碍</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <div class="table-wrap"><table class="styled-table">
+            <tr><th>类型</th><th>特征</th></tr>
+            <tr>
+              <td><span class="keyword">急性焦虑障碍</span>（惊恐发作）</td>
+              <td>起病急骤，终止迅速。突然出现强烈的<span class="keyword">窒息感、濒死感</span>和<span class="keyword">精神失控感</span>。一般<span class="principle">5~10分钟</span></td>
+            </tr>
+            <tr>
+              <td><span class="keyword">广泛性焦虑障碍</span>（慢性焦虑）</td>
+              <td>经常或持续的、<span class="keyword">无明确对象或固定内容</span>的紧张不安，或对现实生活中某些问题过分担心</td>
+            </tr>
+          </table></div>
+          <span class="page-ref">P108</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="抑郁障碍|三低症状：情绪低落、思维迟缓、意志减退。三无：无望、无助、无用。昼轻夜重、春秋复发。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--teal-light);color:var(--teal);">重点</span>
+            <span class="card-label">抑郁障碍</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="principle">"三低症状"</span>：<span class="keyword">情绪低落、思维迟缓、意志减退</span></li>
+            <li><span class="principle">三无</span>：<span class="keyword">无望、无助、无用</span></li>
+            <li><span class="keyword">昼轻夜重</span>、<span class="keyword">春秋复发</span></li>
+          </ul>
+          <div class="mnemonic">三低：低落迟缓减退；三无：望助用</div>
+          <span class="page-ref">P109</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Chapter 8 -->
+    <section class="chapter" id="ch8" data-ch="8" data-color="var(--brown)">
+      <div class="chapter-header" style="border-color:var(--brown);">
+        <span class="chapter-num" style="background:var(--brown);">第八章</span>
+        <span class="chapter-title">心理评估</span>
+      </div>
+
+      <div class="card" data-qa="信度与效度|信度：同一对象几次测量结果的一致程度。效度：测量工具能够测量出所要测东西的真实程度。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--brown-light);color:var(--brown);">名词</span>
+            <span class="card-label">信度与效度</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">信度</span>：一个测验工具在对同一对象的几次测量中所得结果的<span class="keyword">一致程度</span></li>
+            <li><span class="keyword">效度</span>：一个测量工具能够测量出其所要测东西的<span class="keyword">真实程度</span></li>
+          </ul>
+          <div class="mnemonic">信=一致性（信得过=结果稳定）；效=真实性（有效=测得准）</div>
+          <span class="page-ref">P120</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="应用心理测验基本原则|标准化原则（必须坚持）、保密原则、客观性原则。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--brown-light);color:var(--brown);">原则</span>
+            <span class="card-label">应用心理测验的基本原则</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">标准化原则</span>：必须坚持，严格根据测验指导手册执行，使信度和效度达标</li>
+            <li><span class="keyword">保密原则</span></li>
+            <li><span class="keyword">客观性原则</span></li>
+          </ul>
+          <span class="page-ref">P121</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="智力测验|韦克斯勒量表、比尔-西蒙量表（世界上第一个智力量表）、瑞文测验。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--brown-light);color:var(--brown);">量表</span>
+            <span class="card-label">智力测验</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">韦克斯勒量表</span></li>
+            <li><span class="keyword">比尔-西蒙量表</span>（世界上<span class="principle">第一个</span>智力量表）</li>
+            <li><span class="keyword">瑞文测验</span></li>
+          </ul>
+          <span class="page-ref">P124</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="人格测验|明尼苏达多相人格调查表(MMPI)、艾森克人格问卷(EPQ)、卡特尔16种人格因素问卷(16PF)。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--brown-light);color:var(--brown);">量表</span>
+            <span class="card-label">人格测验</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">明尼苏达多相人格调查表（MMPI）</span></li>
+            <li><span class="keyword">艾森克人格问卷（EPQ）</span></li>
+            <li><span class="keyword">卡特尔16种人格因素问卷（16PF）</span></li>
+          </ul>
+          <div class="mnemonic">M16E（MMPI→16PF→EPQ）</div>
+          <span class="page-ref">P126</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="自评量表|90项症状自评量表(SCL-90)、抑郁自评量表(SDS)、焦虑自评量表(SAS)、生活事件量表(LES)。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--brown-light);color:var(--brown);">量表</span>
+            <span class="card-label">自评量表</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">90项症状自评量表（SCL-90）</span></li>
+            <li><span class="keyword">抑郁自评量表（SDS）</span></li>
+            <li><span class="keyword">焦虑自评量表（SAS）</span></li>
+            <li><span class="keyword">生活事件量表（LES）</span></li>
+          </ul>
+          <div class="mnemonic">90焦抑事（SCL-90→SAS→SDS→LES）</div>
+          <span class="page-ref">P129</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="他评量表|汉密尔顿抑郁量表(HAMD)、汉密尔顿焦虑量表(HAMA)。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--brown-light);color:var(--brown);">量表</span>
+            <span class="card-label">他评量表</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">汉密尔顿抑郁量表（HAMD）</span></li>
+            <li><span class="keyword">汉密尔顿焦虑量表（HAMA）</span></li>
+          </ul>
+          <span class="page-ref">P134</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Chapter 9 -->
+    <section class="chapter" id="ch9" data-ch="9" data-color="var(--pink)">
+      <div class="chapter-header" style="border-color:var(--pink);">
+        <span class="chapter-num" style="background:var(--pink);">第九章</span>
+        <span class="chapter-title">心理干预</span>
+      </div>
+
+      <div class="card" data-qa="心理干预内容|健康促进、预防性干预、治疗性干预。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--pink-light);color:var(--pink);">要点</span>
+            <span class="card-label">心理干预的内容</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">健康促进</span></li>
+            <li><span class="keyword">预防性干预</span></li>
+            <li><span class="keyword">治疗性干预</span></li>
+          </ul>
+          <span class="page-ref">P137</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="心理干预方法|①心理健康教育②心理咨询③心理治疗④危机干预。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--pink-light);color:var(--pink);">要点</span>
+            <span class="card-label">心理干预的方法</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li>（一）<span class="keyword">心理健康教育</span></li>
+            <li>（二）<span class="keyword">心理咨询</span></li>
+            <li>（三）<span class="keyword">心理治疗</span></li>
+            <li>（四）<span class="keyword">危机干预</span></li>
+          </ul>
+          <span class="page-ref">P138</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="心理治疗基本原则|信赖性原则、整体性原则、发展性原则、个性化原则、中立性原则、保密性原则。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--pink-light);color:var(--pink);">原则</span>
+            <span class="card-label">心理治疗的基本原则</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">信赖性原则</span></li>
+            <li><span class="keyword">整体性原则</span></li>
+            <li><span class="keyword">发展性原则</span></li>
+            <li><span class="keyword">个性化原则</span></li>
+            <li><span class="keyword">中立性原则</span></li>
+            <li><span class="keyword">保密性原则</span></li>
+          </ul>
+          <div class="mnemonic">信整个发中保（信赖→整体→个性→发展→中立→保密）</div>
+          <span class="page-ref">P140</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="心理治疗基本技术|倾听技术、提问技术（开放式提问、封闭式提问）、鼓励技术、内容反应技术、情感反应技术、面质技术。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--pink-light);color:var(--pink);">重点</span>
+            <span class="card-label">心理治疗的基本技术</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">倾听技术</span></li>
+            <li><span class="keyword">提问技术</span>（开放式提问、封闭式提问）</li>
+            <li><span class="keyword">鼓励技术</span></li>
+            <li><span class="keyword">内容反应技术</span></li>
+            <li><span class="keyword">情感反应技术</span></li>
+            <li><span class="keyword">面质技术</span></li>
+          </ul>
+          <span class="page-ref">P141</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="心理咨询与心理治疗的区别|心理咨询：社会机构、正常人、解决问题或个人成长、短程低频、心理咨询师。心理治疗：医疗机构、心理/精神障碍病人、缓解症状改变人格、长程可能高频、心理治疗师。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--pink-light);color:var(--pink);">对比</span>
+            <span class="card-label">心理咨询与心理治疗的区别</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <div class="table-wrap"><table class="styled-table">
+            <tr><th>区别点</th><th>心理咨询</th><th>心理治疗</th></tr>
+            <tr><td>场所</td><td><span class="keyword">社会机构</span></td><td><span class="keyword">医疗机构</span></td></tr>
+            <tr><td>对象</td><td>有一般心理问题或发展性议题的<span class="keyword">"正常人"</span></td><td><span class="keyword">心理/精神障碍</span>病人</td></tr>
+            <tr><td>目标</td><td>解决问题或<span class="keyword">个人成长</span></td><td>缓解症状，了解背后模式，<span class="keyword">改变人格结构</span></td></tr>
+            <tr><td>时间</td><td><span class="keyword">短程、低频</span></td><td>相对<span class="keyword">长程</span>，可能高频</td></tr>
+            <tr><td>实施者</td><td><span class="keyword">心理咨询师</span></td><td><span class="keyword">心理治疗师</span></td></tr>
+          </table></div>
+          <span class="page-ref">P143</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="行为疗法|建立在行为学习理论基础上的心理治疗方法。治疗过程：建立治疗关系→问题行为分析评估→治疗目标确定→治疗计划选择实施→效果保持巩固。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--pink-light);color:var(--pink);">概念</span>
+            <span class="card-label">行为疗法</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <span class="def-term">行为疗法</span>是建立在<span class="keyword">行为学习理论</span>基础上的心理治疗方法。<span class="page-ref">P151</span>
+          <p style="margin-top:0.5rem;font-weight:700;">治疗过程：</p>
+          <ul class="list-styled">
+            <li>建立治疗关系</li>
+            <li>问题行为的分析和评估</li>
+            <li>治疗目标的确定</li>
+            <li>治疗计划的选择和实施</li>
+            <li>治疗效果的保持和巩固</li>
+          </ul>
+          <span class="page-ref">P152</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="系统脱敏疗法程序|①设计和评定主观不适等级表（分制，级差均衡）②放松训练（随意放松，运用自如）③系统脱敏（由最低开始、想象、放松、再想象、再放松）。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--pink-light);color:var(--pink);">重点</span>
+            <span class="card-label">系统脱敏疗法</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          治疗程序：
+          <ul class="list-styled">
+            <li>①设计和评定<span class="keyword">主观不适等级表</span>（分制，级差均衡）</li>
+            <li>②<span class="keyword">放松训练</span>（随意放松，运用自如）</li>
+            <li>③<span class="keyword">系统脱敏</span>（由最低开始、想象→放松→再想象→再放松…）</li>
+          </ul>
+          <span class="page-ref">P152</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="不合理观念三个特征|绝对化、过分概括化、糟糕至极。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--pink-light);color:var(--pink);">重点</span>
+            <span class="card-label">不合理观念的三个特征</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">绝对化</span></li>
+            <li><span class="keyword">过分概括化</span></li>
+            <li><span class="keyword">糟糕至极</span></li>
+          </ul>
+          <div class="mnemonic">绝概糟（绝对化→概括化→糟糕至极）</div>
+          <span class="page-ref">P159</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="森田疗法治疗原则|顺其自然（最基础）、为所当为。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--pink-light);color:var(--pink);">原则</span>
+            <span class="card-label">森田疗法治疗原则</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="principle">顺其自然</span>（最基础）</li>
+            <li><span class="principle">为所当为</span></li>
+          </ul>
+          <span class="page-ref">P163</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Chapter 10 -->
+    <section class="chapter" id="ch10" data-ch="10" data-color="var(--navy)">
+      <div class="chapter-header" style="border-color:var(--navy);">
+        <span class="chapter-num" style="background:var(--navy);">第十章</span>
+        <span class="chapter-title">病人心理</span>
+      </div>
+
+      <div class="card" data-qa="病人的定义|病人指患有各种躯体疾病包括生理功能障碍、心理障碍或精神性疾病的个体，无论其求医与否，均可被称为病人。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--navy-light);color:var(--navy);">名词</span>
+            <span class="card-label">病人</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <span class="def-term">病人</span>指患有各种躯体疾病包括生理功能障碍、心理障碍或精神性疾病的个体，<span class="keyword">无论其求医与否</span>，均可被称为病人。<span class="page-ref">P173</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="病人角色适应不良|角色行为缺如、角色行为冲突、角色行为减退、角色行为强化、角色行为异常。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--navy-light);color:var(--navy);">重点</span>
+            <span class="card-label">病人角色适应不良</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">角色行为缺如</span></li>
+            <li><span class="keyword">角色行为冲突</span></li>
+            <li><span class="keyword">角色行为减退</span></li>
+            <li><span class="keyword">角色行为强化</span></li>
+            <li><span class="keyword">角色行为异常</span></li>
+          </ul>
+          <div class="mnemonic">缺冲减强异（缺如→冲突→减退→强化→异常）</div>
+          <span class="page-ref">P175</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="癌症病人心理反应分期|I休克-恐惧期(<1周)：震惊恐惧。II否认-怀疑期(1-2周)：否认机制，到处求医。III愤怒-沮丧期(2周后)：易激惹、愤怒、攻击，悲哀绝望。IV接受-适应期(4周后)：接受现实，慢性抑郁。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--navy-light);color:var(--navy);">重点</span>
+            <span class="card-label">癌症病人的心理反应分期</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <div class="table-wrap"><table class="styled-table">
+            <tr><th>分期</th><th>症状</th><th>持续时间</th></tr>
+            <tr>
+              <td><span class="keyword">I 休克-恐惧期</span></td>
+              <td>震惊和恐惧，躯体反应（心慌、眩晕、昏厥、木僵状态）</td>
+              <td><span class="principle">&lt;1周</span></td>
+            </tr>
+            <tr>
+              <td><span class="keyword">II 否认-怀疑期</span></td>
+              <td>借助否认机制应对，怀疑诊断，到处求医</td>
+              <td><span class="principle">1~2周</span></td>
+            </tr>
+            <tr>
+              <td><span class="keyword">III 愤怒-沮丧期</span></td>
+              <td>易激惹、愤怒、攻击行为；悲哀、绝望，可能轻生</td>
+              <td><span class="principle">2周后</span></td>
+            </tr>
+            <tr>
+              <td><span class="keyword">IV 接受-适应期</span></td>
+              <td>接受和适应患癌现实，慢性抑郁和痛苦</td>
+              <td><span class="principle">4周后</span></td>
+            </tr>
+          </table></div>
+          <div class="mnemonic">恐否怒接 → 恐惧→否认→愤怒→接受（1周→2周→2周后→4周后）</div>
+          <span class="page-ref">P182</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Chapter 11 -->
+    <section class="chapter" id="ch11" data-ch="11" data-color="var(--olive)">
+      <div class="chapter-header" style="border-color:var(--olive);">
+        <span class="chapter-num" style="background:var(--olive);">第十一章</span>
+        <span class="chapter-title">医患关系与医患沟通</span>
+      </div>
+
+      <div class="card" data-qa="医患关系的定义|医患关系指在医疗卫生活动中，医务人员为保障和促进病人健康而与病人及其家属建立起来的特殊人际关系。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--olive-light);color:var(--olive);">名词</span>
+            <span class="card-label">医患关系</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <span class="def-term">医患关系</span>指在医疗卫生活动中，医务人员为保障和促进病人健康而与病人及其家属建立起来的<span class="keyword">特殊人际关系</span>。<span class="page-ref">P186</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="医患关系的类型|主动-被动型、指导-合作型、共同参与型。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--olive-light);color:var(--olive);">重点</span>
+            <span class="card-label">医患关系的类型</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">主动-被动型</span></li>
+            <li><span class="keyword">指导-合作型</span></li>
+            <li><span class="keyword">共同参与型</span></li>
+          </ul>
+          <span class="page-ref">P188</span>
+        </div></div>
+      </div>
+
+      <div class="card" data-qa="医患沟通基本原则|知情同意原则、平等与尊重原则、理解与宽容原则、目标明确原则、保密原则。">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-head-left">
+            <span class="card-tag" style="background:var(--olive-light);color:var(--olive);">原则</span>
+            <span class="card-label">医患沟通的基本原则</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button>
+            <span class="card-expand">▼</span>
+          </div>
+        </div>
+        <button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">点击显示答案</button>
+        <div class="card-body"><div class="card-content">
+          <ul class="list-styled">
+            <li><span class="keyword">知情同意原则</span></li>
+            <li><span class="keyword">平等与尊重原则</span></li>
+            <li><span class="keyword">理解与宽容原则</span></li>
+            <li><span class="keyword">目标明确原则</span></li>
+            <li><span class="keyword">保密原则</span></li>
+          </ul>
+          <div class="mnemonic">知平理目保（知情→平等→理解→目标→保密）</div>
+          <span class="page-ref">P192</span>
+        </div></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="shortcut-hint" id="shortcuts">
+  <strong>键盘快捷键</strong><br>
+  <span class="kbd">J</span> 下一个卡片<br>
+  <span class="kbd">K</span> 上一个卡片<br>
+  <span class="kbd">Enter</span> 展开/折叠<br>
+  <span class="kbd">F</span> 切换闪卡模式<br>
+  <span class="kbd">H</span> 切换遮盖模式<br>
+  <span class="kbd">/</span> 聚焦搜索<br>
+  <span class="kbd">Esc</span> 关闭提示
+</div>
+
+<script>
+  // ── State ──
+  let allExpanded = false;
+  let flashcardMode = false;
+  let hideAnswerMode = false;
+  let showMasteredOnly = false;
+  let fcIndex = 0;
+  let flashcards = [];
+
+  // ── Init ──
+  document.addEventListener('DOMContentLoaded', () => {
+    buildNav();
+    buildFlashcards();
+    loadMastered();
+    updateStats();
+
+    document.getElementById('searchInput').addEventListener('input', debounce(handleSearch, 200));
+  });
+
+  // ── Navigation ──
+  function buildNav() {
+    const nav = document.getElementById('nav');
+    const chapters = document.querySelectorAll('.chapter');
+    const colors = [
+      'var(--accent)', 'var(--gold)', 'var(--green)', 'var(--blue)',
+      'var(--purple)', 'var(--red)', 'var(--teal)', 'var(--brown)',
+      'var(--pink)', 'var(--navy)', 'var(--olive)'
+    ];
+    chapters.forEach((ch, i) => {
+      const num = ch.dataset.ch;
+      const title = ch.querySelector('.chapter-title').textContent;
+      const count = ch.querySelectorAll('.card').length;
+      const a = document.createElement('a');
+      a.className = 'nav-item';
+      a.href = '#ch' + num;
+      a.innerHTML = `<span class="nav-dot" style="background:${colors[i]}"></span>
+        <span>${num}. ${title}</span>
+        <span class="nav-count">${count}</span>`;
+      a.addEventListener('click', (e) => {
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        a.classList.add('active');
+      });
+      nav.appendChild(a);
+    });
+
+    // Intersection observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+          const activeNav = document.querySelector(`.nav-item[href="#${id}"]`);
+          if (activeNav) activeNav.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    chapters.forEach(ch => observer.observe(ch));
+  }
+
+  // ── Card Toggle ──
+  function toggleCard(head) {
+    const card = head.closest('.card');
+    card.classList.toggle('open');
+  }
+
+  // ── Expand/Collapse All ──
+  function toggleAll() {
+    allExpanded = !allExpanded;
+    document.querySelectorAll('.card').forEach(c => {
+      c.classList.toggle('open', allExpanded);
+    });
+    document.getElementById('btnExpandAll').classList.toggle('active', allExpanded);
+  }
+
+  // ── Flashcard Mode ──
+  function buildFlashcards() {
+    flashcards = [];
+    document.querySelectorAll('.card[data-qa]').forEach(card => {
+      const [q, a] = card.dataset.qa.split('|');
+      if (q && a) flashcards.push({ q, a });
+    });
+  }
+
+  function toggleFlashcard() {
+    flashcardMode = !flashcardMode;
+    document.getElementById('mainContent').classList.toggle('flashcard-mode', flashcardMode);
+    document.getElementById('btnFlashcard').classList.toggle('active', flashcardMode);
+    if (flashcardMode) {
+      fcIndex = 0;
+      showFlashcard();
+    }
+  }
+
+  function showFlashcard() {
+    if (!flashcards.length) return;
+    const fc = document.getElementById('flashcard');
+    fc.classList.remove('flipped');
+    document.getElementById('fcFront').textContent = flashcards[fcIndex].q;
+    document.getElementById('fcBack').innerHTML = flashcards[fcIndex].a.replace(/；/g, '；<br>');
+    document.getElementById('flashcardCounter').textContent = `${fcIndex + 1} / ${flashcards.length}`;
+  }
+
+  function fcNext() {
+    fcIndex = (fcIndex + 1) % flashcards.length;
+    showFlashcard();
+  }
+
+  function fcPrev() {
+    fcIndex = (fcIndex - 1 + flashcards.length) % flashcards.length;
+    showFlashcard();
+  }
+
+  function fcFlip() {
+    document.getElementById('flashcard').classList.toggle('flipped');
+  }
+
+  // ── Hide Answer Mode ──
+  function toggleHideAnswer() {
+    hideAnswerMode = !hideAnswerMode;
+    document.querySelectorAll('.card').forEach(c => {
+      c.classList.toggle('hide-answer', hideAnswerMode);
+      if (!hideAnswerMode) {
+        const btn = c.querySelector('.reveal-btn');
+        if (btn) btn.style.display = 'none';
+      }
+    });
+    document.getElementById('btnHideAnswer').classList.toggle('active', hideAnswerMode);
+  }
+
+  // ── Mastered ──
+  function toggleMaster(btn) {
+    btn.classList.toggle('done');
+    const card = btn.closest('.card');
+    const label = card.querySelector('.card-label').textContent;
+    const mastered = JSON.parse(localStorage.getItem('mastered') || '{}');
+    if (btn.classList.contains('done')) {
+      mastered[label] = true;
+    } else {
+      delete mastered[label];
+    }
+    localStorage.setItem('mastered', JSON.stringify(mastered));
+    updateStats();
+  }
+
+  function loadMastered() {
+    const mastered = JSON.parse(localStorage.getItem('mastered') || '{}');
+    document.querySelectorAll('.card').forEach(card => {
+      const label = card.querySelector('.card-label')?.textContent;
+      if (label && mastered[label]) {
+        const btn = card.querySelector('.master-btn');
+        if (btn) btn.classList.add('done');
+      }
+    });
+  }
+
+  function updateStats() {
+    const total = document.querySelectorAll('.master-btn').length;
+    const done = document.querySelectorAll('.master-btn.done').length;
+    const pct = total ? Math.round((done / total) * 100) : 0;
+    document.getElementById('statsFill').style.width = pct + '%';
+    document.getElementById('statsText').textContent = `${done} / ${total} 已掌握 (${pct}%)`;
+  }
+
+  function toggleShowMastered() {
+    showMasteredOnly = !showMasteredOnly;
+    document.querySelectorAll('.card').forEach(card => {
+      if (showMasteredOnly) {
+        const btn = card.querySelector('.master-btn');
+        card.style.display = btn && btn.classList.contains('done') ? '' : 'none';
+      } else {
+        card.style.display = '';
+      }
+    });
+    document.getElementById('btnMastered').classList.toggle('active', showMasteredOnly);
+  }
+
+  // ── Search ──
+  function handleSearch() {
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    document.querySelectorAll('.card').forEach(card => {
+      // Remove old highlights
+      card.querySelectorAll('mark').forEach(m => {
+        m.replaceWith(document.createTextNode(m.textContent));
+      });
+
+      if (!query) {
+        card.classList.remove('search-hidden');
+        return;
+      }
+
+      const text = card.textContent.toLowerCase();
+      if (text.includes(query)) {
+        card.classList.remove('search-hidden');
+        card.classList.add('open');
+        // Highlight in label
+        const label = card.querySelector('.card-label');
+        if (label) {
+          highlightText(label, query);
+        }
+      } else {
+        card.classList.add('search-hidden');
+      }
+    });
+
+    // Also check chapters
+    document.querySelectorAll('.chapter').forEach(ch => {
+      const visibleCards = ch.querySelectorAll('.card:not(.search-hidden)');
+      ch.style.display = (!query || visibleCards.length) ? '' : 'none';
+    });
+  }
+
+  function highlightText(el, query) {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+    textNodes.forEach(node => {
+      const idx = node.textContent.toLowerCase().indexOf(query);
+      if (idx === -1) return;
+      const range = document.createRange();
+      range.setStart(node, idx);
+      range.setEnd(node, idx + query.length);
+      const mark = document.createElement('mark');
+      range.surroundContents(mark);
+    });
+  }
+
+  // ── Keyboard ──
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT') {
+      if (e.key === 'Escape') e.target.blur();
+      return;
+    }
+
+    const visibleCards = [...document.querySelectorAll('.chapter:not([style*="display: none"]) .card:not(.search-hidden)')];
+    const openCards = visibleCards.filter(c => c.classList.contains('open'));
+    const currentIdx = openCards.length ? visibleCards.indexOf(openCards[openCards.length - 1]) : -1;
+
+    switch(e.key) {
+      case 'j':
+      case 'J':
+        e.preventDefault();
+        if (flashcardMode) { fcNext(); return; }
+        if (currentIdx < visibleCards.length - 1) {
+          visibleCards[currentIdx + 1].classList.add('open');
+          visibleCards[currentIdx + 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        break;
+      case 'k':
+      case 'K':
+        e.preventDefault();
+        if (flashcardMode) { fcPrev(); return; }
+        if (currentIdx > 0) {
+          visibleCards[currentIdx].classList.remove('open');
+          visibleCards[currentIdx - 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        break;
+      case 'Enter':
+        e.preventDefault();
+        if (currentIdx >= 0) {
+          visibleCards[currentIdx].classList.toggle('open');
+        }
+        break;
+      case 'f':
+      case 'F':
+        toggleFlashcard();
+        break;
+      case 'h':
+      case 'H':
+        toggleHideAnswer();
+        break;
+      case '/':
+        e.preventDefault();
+        document.getElementById('searchInput').focus();
+        break;
+      case 'Escape':
+        document.getElementById('shortcuts').classList.remove('show');
+        break;
+    }
+  });
+
+  // ── Shortcuts Hint ──
+  function toggleShortcuts() {
+    document.getElementById('shortcuts').classList.toggle('show');
+  }
+
+  // ── Utilities ──
+  function debounce(fn, delay) {
+    let timer;
+    return function(...args) {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn.apply(this, args), delay);
+    };
+  }
+</script>
+</body>
+</html>

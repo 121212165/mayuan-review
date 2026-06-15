@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/bingli", "destination": "/bingli.html" },
+    { "source": "/code3", "destination": "/code%20(3).html" }
+  ]
+}
