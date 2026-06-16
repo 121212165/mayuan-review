@@ -615,7 +615,9 @@ const timer = {
 
 /* ═══ INIT ═══ */
 function initApp() {
+  D.totalTopics = D.meta.totalTopics;
   D.meta.stats = { singleCount: D.single.length, multiCount: D.multi.length, subjCount: D.subj.length, suggestedHours: D.topics.reduce((s, t) => s + t.hours, 0) };
+  D.stats = D.meta.stats;
   renderHome();
   renderKP();
   renderFormula();
