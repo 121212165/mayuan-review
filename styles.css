@@ -89,6 +89,23 @@ header .sub{font-size:.8rem;color:var(--muted);letter-spacing:.1em}
 .subj-body-inner p{margin-bottom:8px}
 .subj-body-inner strong{color:var(--accent2)}
 
+.subj-tabs{display:flex;gap:4px;margin-bottom:12px}
+.subj-tab{font-size:.75rem;padding:5px 16px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.subj-tab:hover{border-color:var(--accent)}
+.subj-tab.active{border-color:var(--accent);color:var(--accent2);background:var(--accent-glow)}
+.subj-tab-content{display:none}
+.subj-tab-content.active{display:block}
+
+.kw-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.kw-chip{font-size:.78rem;padding:4px 12px;border:1px solid var(--accent);border-radius:6px;background:var(--accent-glow);color:var(--accent2)}
+.short-answer{font-size:.85rem;line-height:1.9;color:var(--text)}
+
+.mnemonic-display{font-size:clamp(1.5rem,5vw,2.5rem);font-weight:700;color:var(--accent2);text-align:center;padding:20px 0;letter-spacing:.3em}
+.mnemonic-desc{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.mnemonic-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;min-width:60px}
+.mnemonic-char{font-size:1.2rem;font-weight:700;color:var(--accent2)}
+.mnemonic-label{font-size:.7rem;color:var(--muted);text-align:center}
+
 .timer-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:32px}
 .timer-display{font-size:clamp(2rem,7vw,3.5rem);font-weight:300;color:var(--accent2);margin:16px 0;letter-spacing:.06em;font-family:monospace}
 .timer-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
@@ -147,4 +164,8 @@ table.exam-table td{padding:8px}
   .kp-head,.subj-head{padding:12px 14px;gap:8px}
   .kp-body-inner,.subj-body-inner{padding:0 14px 12px}
   .quiz-q{padding:14px}
+  .mnemonic-display{font-size:1.5rem;padding:14px 0}
+  .mnemonic-item{padding:6px 10px;min-width:48px}
+  .subj-tabs{gap:2px}
+  .subj-tab{font-size:.7rem;padding:4px 10px}
 }

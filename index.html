@@ -551,11 +551,47 @@ function filterMulti(tag, btn) {
 }
 
 /* ═══ SUBJECTIVE ═══ */
+function switchSubjTab(btn, mode) {
+  const card = btn.closest('.subj-card');
+  card.querySelectorAll('.subj-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  card.querySelectorAll('.subj-tab-content').forEach(c => c.classList.remove('active'));
+  card.querySelector(`.subj-tab-content[data-mode="${mode}"]`).classList.add('active');
+}
+
 function renderSubj() {
-  document.getElementById('subjTitle').textContent = `主观题 ${D.subj.length} 道标准答案`;
-  document.getElementById('subjArea').innerHTML = D.subj.map((d, i) =>
-    `<div class="subj-card"><div class="subj-head" onclick="this.closest('.subj-card').classList.toggle('open')"><div class="subj-num">${i + 1}</div><div class="subj-q">${d.q}</div><div class="subj-arrow">›</div></div><div class="subj-body"><div class="subj-body-inner"><hr class="divider"><p>${d.a}</p></div></div></div>`
-  ).join('');
+  document.getElementById('subjTitle').textContent = `主观题 ${D.subj.length} 道`;
+  document.getElementById('subjArea').innerHTML = D.subj.map((d, i) => {
+    const mnemonicHtml = d.mnemonic ? d.mnemonic.split('').map((ch, idx) =>
+      `<span class="mnemonic-item"><span class="mnemonic-char">${ch}</span><span class="mnemonic-label">${d.keywords[idx] || ''}</span></span>`
+    ).join('') : '';
+    return `<div class="subj-card">
+      <div class="subj-head" onclick="this.closest('.subj-card').classList.toggle('open')">
+        <div class="subj-num">${i + 1}</div>
+        <div class="subj-q">${d.q}</div>
+        <div class="subj-arrow">›</div>
+      </div>
+      <div class="subj-body">
+        <div class="subj-body-inner">
+          <hr class="divider">
+          <div class="subj-tabs">
+            <button class="subj-tab active" onclick="switchSubjTab(this,'full')">全文</button>
+            <button class="subj-tab" onclick="switchSubjTab(this,'quick')">速记</button>
+            <button class="subj-tab" onclick="switchSubjTab(this,'mnemonic')">口诀</button>
+          </div>
+          <div class="subj-tab-content active" data-mode="full"><p>${d.a}</p></div>
+          <div class="subj-tab-content" data-mode="quick">
+            <div class="kw-chips">${d.keywords.map(k => `<span class="kw-chip">${k}</span>`).join('')}</div>
+            <p class="short-answer">${d.short}</p>
+          </div>
+          <div class="subj-tab-content" data-mode="mnemonic">
+            <div class="mnemonic-display">${d.mnemonic}</div>
+            ${d.keywords && d.mnemonic ? `<div class="mnemonic-desc">${mnemonicHtml}</div>` : ''}
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 /* ═══ FORMULA ═══ */
