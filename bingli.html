@@ -1,398 +1,815 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<title>免疫学与病原生物学 · 复习手册</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>病理学重点复习</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#f6f3ec;--bg-warm:#f0ebe0;--surface:#fff;--surface-hover:#fefcf8;
-  --text:#2c2418;--text-muted:#8a7e6d;--border:#e5ddd0;--shadow:rgba(55,42,18,.06);
-  --accent:#b34a28;--accent-light:#fdf0ea;
-  --gold:#a07b1a;--gold-light:#faf3e0;--green:#2a7048;--green-light:#eaf5ef;
-  --blue:#2e5e80;--blue-light:#eaf2f8;--purple:#6a4a88;--purple-light:#f2edf8;
-  --red:#9a3030;--red-light:#fbeeee;--teal:#1e6e6e;--teal-light:#e8f4f4;
-  --coral:#c06040;--coral-light:#fdf1ed;--cyan:#20707a;--cyan-light:#e6f4f6;
-  --rose:#904060;--rose-light:#f8edf2;--slate:#546070;--slate-light:#eef1f4;
-  --navy:#344a68;--navy-light:#edf1f6;--olive:#557040;--olive-light:#f0f5eb;
-  --safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#0f1318;--sf:#171c24;--sf2:#1e2530;--bd:#2a3140;
+  --ac:#d4a574;--ac-d:rgba(212,165,116,.12);
+  --tx:#e2ddd5;--tx2:#8a8580;--tx3:#f5f0e8;
+  --cc:#6ea8fe;--cb:#ff6b6b;--ci:#ffd43b;--ct:#b197fc;
+  --cp:#f783ac;--cr:#69db7c;--co:#ffa94d;--ck:#66d9e8;--cl:#a9e34b;
 }
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-html{scroll-behavior:smooth;font-size:16px;}
-body{font-family:'Noto Serif SC','Songti SC',Georgia,serif;background:var(--bg);color:var(--text);line-height:1.85;min-height:100vh;-webkit-font-smoothing:antialiased;}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
-.site-header{position:sticky;top:0;z-index:100;padding-top:var(--safe-top);background:rgba(246,243,236,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding-left:max(1rem,env(safe-area-inset-left));padding-right:max(1rem,env(safe-area-inset-right));padding-bottom:.5rem;}
-.header-row{display:flex;align-items:center;justify-content:space-between;height:48px;gap:.6rem;}
-.site-title{font-family:'ZCOOL XiaoWei','Noto Serif SC',serif;font-size:1.1rem;color:var(--accent);white-space:nowrap;letter-spacing:.06em;flex-shrink:0;}
-.header-right{display:flex;align-items:center;gap:.35rem;flex-shrink:0;}
-.header-search-row{margin-top:.35rem;}
-.search-box{position:relative;width:100%;}
-.search-box input{width:100%;padding:.5rem .6rem .5rem 2rem;border:1px solid var(--border);border-radius:8px;background:var(--surface);font-size:.9rem;font-family:inherit;color:var(--text);outline:none;}
-.search-box input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(179,74,40,.1);}
-.search-box::before{content:'🔍';position:absolute;left:.6rem;top:50%;transform:translateY(-50%);font-size:.8rem;pointer-events:none;}
-.icon-btn{width:40px;height:40px;border:1px solid var(--border);border-radius:8px;background:var(--surface);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;color:var(--text-muted);flex-shrink:0;}
-.icon-btn:hover,.icon-btn:active{border-color:var(--accent);color:var(--accent);background:var(--accent-light);}
-.icon-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
-.mobile-toolbar{position:fixed;bottom:0;left:0;right:0;z-index:100;padding-bottom:var(--safe-bottom);background:rgba(246,243,236,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--border);display:flex;justify-content:space-around;align-items:center;height:56px;}
-.tb-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:1;height:100%;border:none;background:none;cursor:pointer;font-family:inherit;color:var(--text-muted);transition:color .2s;}
-.tb-btn:active,.tb-btn.active{color:var(--accent);}
-.tb-btn .tb-icon{font-size:1.15rem;line-height:1;}
-.tb-btn .tb-label{font-size:.6rem;letter-spacing:.03em;}
-@media(min-width:861px){.mobile-toolbar{display:none;}.header-search-row{display:none;}}
-.sidebar{width:230px;flex-shrink:0;position:sticky;top:55px;height:calc(100vh - 55px);overflow-y:auto;padding:1rem .7rem 2rem;border-right:1px solid var(--border);scrollbar-width:thin;}
-.sidebar-title{font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-muted);margin-bottom:.5rem;padding:0 .4rem;}
-.nav-group-title{font-size:.68rem;font-weight:700;color:var(--text-muted);padding:.5rem .4rem .15rem;letter-spacing:.08em;opacity:.7;}
-.nav-item{display:flex;align-items:center;gap:.4rem;padding:.35rem .5rem;border-radius:5px;cursor:pointer;font-size:.78rem;color:var(--text-muted);transition:all .2s;margin-bottom:1px;text-decoration:none;}
-.nav-item:hover{background:var(--surface);color:var(--text);}
-.nav-item.active{background:var(--accent-light);color:var(--accent);font-weight:700;}
-.nav-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;opacity:.7;}
-.nav-count{margin-left:auto;font-size:.6rem;color:var(--text-muted);opacity:.5;}
-.sidebar-stats{margin-top:1rem;padding:.65rem;background:var(--surface);border-radius:7px;border:1px solid var(--border);}
-.stats-label{font-size:.68rem;color:var(--text-muted);margin-bottom:.2rem;}
-.stats-bar{height:5px;background:var(--bg-warm);border-radius:3px;overflow:hidden;margin-bottom:.3rem;}
-.stats-fill{height:100%;background:var(--green);border-radius:3px;transition:width .5s ease;}
-.stats-text{font-size:.68rem;color:var(--text-muted);}
-@media(max-width:860px){
-  .sidebar{position:fixed;top:0;left:0;z-index:200;width:280px;height:100vh;height:100dvh;transform:translateX(-100%);transition:transform .3s ease;background:var(--bg);box-shadow:4px 0 30px rgba(0,0,0,.12);padding-top:max(1rem,var(--safe-top));padding-bottom:var(--safe-bottom);}
-  .sidebar.open{transform:translateX(0);}
-  .sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:199;opacity:0;pointer-events:none;transition:opacity .3s;}
-  .sidebar-overlay.show{opacity:1;pointer-events:auto;}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'LXGW WenKai','Noto Serif SC',serif;background:var(--bg);color:var(--tx);line-height:1.8;font-size:15px;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+
+/* ─── Header ─── */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(15,19,24,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);padding:12px 0}
+.hdr-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hdr h1{font-size:1.25rem;font-weight:700;color:var(--ac);white-space:nowrap;letter-spacing:.04em}
+.hdr h1 span{color:var(--tx2);font-weight:300;font-size:.85rem;margin-left:8px}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap}
+.nav-links a{color:var(--tx2);text-decoration:none;font-size:.82rem;padding:4px 12px;border-radius:6px;border:1px solid transparent;transition:.2s}
+.nav-links a:hover,.nav-links a.on{color:var(--ac);border-color:var(--bd);background:var(--ac-d)}
+.stats{margin-left:auto;font-size:.75rem;color:var(--tx2);white-space:nowrap}
+
+/* ─── Main ─── */
+.main{max-width:1100px;margin:0 auto;padding:32px 24px 80px;position:relative;z-index:1}
+.sec{margin-bottom:56px}
+.sec-hd{display:flex;align-items:baseline;gap:12px;margin-bottom:28px;padding-bottom:12px;border-bottom:1px solid var(--bd)}
+.sec-hd h2{font-size:1.35rem;font-weight:700;color:var(--tx3)}
+.sec-hd .badge{font-size:.72rem;background:var(--ac-d);color:var(--ac);padding:2px 10px;border-radius:20px}
+
+/* ─── Term Cards ─── */
+.cat-label{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;margin:28px 0 16px;padding-left:12px;border-left:3px solid var(--cat-c,var(--cc))}
+.term-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.tc{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:20px 22px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.tc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--cat-c,var(--cc))}
+.tc:hover{border-color:var(--cat-c,var(--cc));transform:translateY(-2px)}
+.tc-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.tc-num{font-size:.7rem;background:var(--cat-c,var(--cc));color:var(--bg);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+.tc-name{font-size:1.05rem;font-weight:700;color:var(--tx3)}
+.tc-def{font-size:.88rem;color:var(--tx);line-height:1.85}
+mark{background:var(--ac-d);color:var(--ac);padding:0 4px;border-radius:3px;font-weight:700}
+
+/* ─── Knowledge Items ─── */
+.kg{margin-bottom:32px}
+.kg-hd{font-size:1rem;font-weight:700;color:var(--tx3);margin-bottom:14px;padding:6px 0 6px 12px;border-left:3px solid var(--ac);display:flex;align-items:center;gap:8px}
+.kg-hd .kg-icon{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.k-list{list-style:none;counter-reset:ki}
+.ki{counter-increment:ki;padding:10px 14px 10px 48px;border-radius:6px;position:relative;transition:background .15s;font-size:.9rem;line-height:1.8}
+.ki:hover{background:var(--sf)}
+.ki::before{content:counter(ki);position:absolute;left:14px;top:10px;font-size:.72rem;color:var(--tx2);font-weight:700;min-width:20px;text-align:right}
+.ki .kn{position:absolute;left:14px;top:10px;font-size:.72rem;color:var(--tx2);font-weight:700}
+b,strong{color:var(--tx3);font-weight:700}
+.key-num{color:var(--ac);font-weight:700}
+
+/* ─── Comparison Tables ─── */
+.cmp-tbl{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:.84rem;border-radius:8px;overflow:hidden;border:1px solid var(--bd)}
+.cmp-tbl th{background:var(--sf2);color:var(--ac);font-weight:700;padding:8px 12px;text-align:left;border-bottom:1px solid var(--bd)}
+.cmp-tbl td{padding:8px 12px;border-bottom:1px solid var(--bd);color:var(--tx);vertical-align:top}
+.cmp-tbl tr:last-child td{border-bottom:none}
+.cmp-tbl tr:hover td{background:var(--sf)}
+
+/* ─── Essay Panels ─── */
+.ep{background:var(--sf);border:1px solid var(--bd);border-radius:10px;margin-bottom:14px;overflow:hidden;transition:border-color .2s}
+.ep.open{border-color:var(--ac)}
+.ep-hd{padding:16px 22px;cursor:pointer;display:flex;align-items:center;gap:12px;user-select:none;transition:background .15s}
+.ep-hd:hover{background:var(--sf2)}
+.ep-arrow{width:20px;height:20px;display:flex;align-items:center;justify-content:center;transition:transform .3s;color:var(--ac);flex-shrink:0;font-size:.85rem}
+.ep.open .ep-arrow{transform:rotate(90deg)}
+.ep-title{font-weight:700;font-size:.95rem;color:var(--tx3)}
+.ep-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.ep.open .ep-body{max-height:5000px}
+.ep-content{padding:0 22px 22px;font-size:.88rem;line-height:2}
+.ep-content ol,.ep-content ul{padding-left:20px;margin:8px 0}
+.ep-content li{margin-bottom:6px}
+.ep-content p{margin-bottom:8px}
+.ep-content .sub-q{color:var(--ac);font-weight:700;margin:14px 0 6px;font-size:.92rem}
+
+/* ─── Utility ─── */
+.sep{height:1px;background:var(--bd);margin:24px 0}
+.note{background:var(--ac-d);border-left:3px solid var(--ac);padding:10px 16px;border-radius:0 8px 8px 0;font-size:.84rem;margin:12px 0;color:var(--ac)}
+
+/* ─── Animations ─── */
+.tc,.ki,.ep{opacity:0;animation:fadeUp .5s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.tc:nth-child(1){animation-delay:.05s}.tc:nth-child(2){animation-delay:.1s}.tc:nth-child(3){animation-delay:.15s}.tc:nth-child(4){animation-delay:.2s}
+
+/* ─── Responsive ─── */
+@media(max-width:640px){
+  .hdr-inner{padding:0 14px}
+  .hdr h1 span{display:none}
+  .main{padding:20px 14px 60px}
+  .term-grid{grid-template-columns:1fr}
+  .stats{display:none}
+  .ki{padding-left:40px}
 }
-.layout{display:flex;max-width:1200px;margin:0 auto;position:relative;z-index:1;}
-.main-content{flex:1;min-width:0;padding:1rem 1.5rem calc(70px + var(--safe-bottom));}
-@media(max-width:860px){.main-content{padding:.8rem .9rem calc(62px + var(--safe-bottom));}}
-@media(max-width:400px){.main-content{padding:.6rem .65rem calc(62px + var(--safe-bottom));}}
-.part-divider{display:flex;align-items:center;gap:.7rem;margin:1.8rem 0 1.2rem;padding:.5rem 0;position:relative;}
-.part-divider::before{content:'';position:absolute;left:0;right:0;top:50%;border-top:2px solid var(--border);}
-.part-badge{position:relative;z-index:1;padding:.3rem 1rem;border-radius:18px;font-size:.82rem;font-weight:700;letter-spacing:.05em;color:#fff;white-space:nowrap;}
-.chapter{margin-bottom:2rem;animation:fadeUp .5s ease both;scroll-margin-top:60px;}
-.chapter-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;padding-bottom:.6rem;border-bottom:2px solid;}
-.chapter-num{font-size:.65rem;font-weight:700;padding:.12em .5em;border-radius:4px;color:#fff;letter-spacing:.03em;white-space:nowrap;}
-.chapter-title{font-size:1.15rem;font-weight:700;letter-spacing:.02em;}
-@media(max-width:400px){.chapter-title{font-size:1.02rem;}}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:.75rem;overflow:hidden;transition:box-shadow .3s,border-color .3s;position:relative;}
-.card:hover{box-shadow:0 3px 16px var(--shadow);border-color:#d5cdbf;}
-.card-head{display:flex;align-items:center;justify-content:space-between;padding:.65rem .9rem;cursor:pointer;user-select:none;transition:background .2s;min-height:48px;}
-.card-head:active{background:var(--surface-hover);}
-.card-head-left{display:flex;align-items:center;gap:.45rem;flex:1;min-width:0;}
-.card-tag{font-size:.58rem;padding:.1em .4em;border-radius:3px;font-weight:700;white-space:nowrap;letter-spacing:.02em;flex-shrink:0;}
-.card-label{font-size:.88rem;font-weight:700;line-height:1.35;overflow:hidden;text-overflow:ellipsis;}
-.card-expand{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all .3s;flex-shrink:0;color:var(--text-muted);font-size:.75rem;}
-.card.open .card-expand{transform:rotate(180deg);}
-.card-body{max-height:0;overflow:hidden;transition:max-height .45s ease,padding .3s ease;}
-.card.open .card-body{max-height:8000px;padding:0 .9rem .85rem;}
-.card-content{border-top:1px dashed var(--border);padding-top:.65rem;}
-.def-term{font-weight:700;color:var(--accent);}
-.keyword{background:linear-gradient(to bottom,transparent 56%,rgba(179,74,40,.14) 56%);font-weight:700;padding:0 2px;}
-.principle{color:var(--accent);font-weight:700;}
-.list-styled{list-style:none;padding:0;}
-.list-styled li{position:relative;padding-left:1.25em;margin-bottom:.28rem;}
-.list-styled li::before{content:'';position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.45;}
-.sub-list{list-style:none;padding-left:.4rem;margin-top:.12rem;}
-.sub-list li{padding-left:1.1em;font-size:.88rem;color:#5a4a38;}
-.sub-list li::before{width:4px;height:4px;opacity:.3;}
-.table-wrap{overflow-x:auto;margin:.45rem 0;border-radius:7px;border:1px solid var(--border);-webkit-overflow-scrolling:touch;}
-.styled-table{width:100%;border-collapse:collapse;font-size:.82rem;}
-.styled-table th{background:var(--bg-warm);font-weight:700;padding:.45rem .6rem;text-align:left;border-bottom:2px solid var(--border);white-space:nowrap;}
-.styled-table td{padding:.4rem .6rem;border-bottom:1px solid var(--border);vertical-align:top;}
-.styled-table tr:last-child td{border-bottom:none;}
-.styled-table tr:hover td{background:var(--surface-hover);}
-.mnemonic{background:var(--gold-light);border:1px dashed var(--gold);border-radius:7px;padding:.45rem .8rem;margin:.45rem 0;font-size:.82rem;}
-.mnemonic::before{content:'💡 口诀';display:block;font-size:.66rem;font-weight:700;color:var(--gold);margin-bottom:.12rem;letter-spacing:.03em;}
-.flow-box{display:flex;flex-wrap:wrap;gap:.5rem;margin:.5rem 0;align-items:center;}
-.flow-step{background:var(--surface);border:1.5px solid var(--border);border-radius:8px;padding:.35rem .7rem;font-size:.8rem;font-weight:700;position:relative;}
-.flow-step.highlight{border-color:var(--accent);background:var(--accent-light);color:var(--accent);}
-.flow-arrow{color:var(--text-muted);font-size:.85rem;font-weight:700;}
-.flow-note{font-size:.75rem;color:var(--text-muted);margin-top:.2rem;font-weight:400;line-height:1.4;}
-.master-btn{width:24px;height:24px;border:1.5px solid var(--border);border-radius:50%;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:transparent;transition:all .2s;flex-shrink:0;}
-.master-btn:hover{border-color:var(--green);color:var(--green);}
-.master-btn.done{background:var(--green);border-color:var(--green);color:#fff;}
-.hide-answer .card-body{display:none!important;}
-.hide-answer .card-expand{display:none;}
-.reveal-btn{display:none;margin:.45rem 0;padding:.35rem .85rem;border:1px dashed var(--accent);border-radius:6px;background:transparent;color:var(--accent);font-family:inherit;font-size:.82rem;cursor:pointer;}
-.hide-answer .reveal-btn{display:inline-block;}
-.flashcard-section{display:none;padding:1rem 0;}
-.main-content.flashcard-mode .chapter,.main-content.flashcard-mode .part-divider{display:none;}
-.main-content.flashcard-mode .flashcard-section{display:block;}
-.flashcard{max-width:100%;margin:0 auto;perspective:1000px;cursor:pointer;height:min(340px,55vh);}
-.flashcard-inner{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;}
-.flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
-.flashcard-front,.flashcard-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;text-align:center;box-shadow:0 6px 30px var(--shadow);overflow-y:auto;}
-.flashcard-front{background:linear-gradient(135deg,#fff,var(--bg-warm));border:1px solid var(--border);}
-.flashcard-back{background:linear-gradient(135deg,var(--accent-light),#fff);border:1px solid rgba(179,74,40,.2);transform:rotateY(180deg);font-size:.88rem;line-height:1.75;}
-.flashcard-q{font-size:1.08rem;font-weight:700;color:var(--text);}
-.flashcard-hint{font-size:.75rem;color:var(--text-muted);margin-top:.6rem;}
-.flashcard-nav{display:flex;justify-content:center;gap:.6rem;margin-top:1rem;}
-.flashcard-nav button{padding:.45rem 1rem;border:1px solid var(--border);border-radius:8px;background:var(--surface);font-family:inherit;font-size:.85rem;cursor:pointer;color:var(--text);min-height:44px;}
-.flashcard-nav button:active{background:var(--accent-light);border-color:var(--accent);}
-.flashcard-counter{text-align:center;font-size:.78rem;color:var(--text-muted);margin-bottom:.6rem;}
-.swipe-hint{text-align:center;font-size:.7rem;color:var(--text-muted);opacity:.6;margin-top:.6rem;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-mark{background:rgba(184,134,11,.18);color:inherit;padding:0 2px;border-radius:2px;}
-.card.search-hidden{display:none;}
-.shortcut-hint{position:fixed;bottom:1.2rem;right:1.2rem;background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.65rem .85rem;font-size:.7rem;color:var(--text-muted);box-shadow:0 3px 16px var(--shadow);z-index:50;line-height:2;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;pointer-events:none;}
-.shortcut-hint.show{opacity:1;transform:translateY(0);pointer-events:auto;}
-.kbd{display:inline-block;font-size:.58rem;padding:.05em .28em;border:1px solid var(--border);border-radius:3px;background:var(--bg-warm);color:var(--text-muted);font-family:monospace;margin-right:.2em;vertical-align:middle;}
-@media(max-width:860px){.shortcut-hint{display:none;}}
-::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
-@media print{.site-header,.sidebar,.master-btn,.reveal-btn,.card-expand,.flashcard-section,.mobile-toolbar,.sidebar-overlay{display:none!important;}.card-body{max-height:none!important;padding:.4rem .8rem!important;}.card{break-inside:avoid;border:1px solid #ccc;}body{background:#fff;}body::before{display:none;}}
 </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="header-row">
-    <div style="display:flex;align-items:center;gap:.5rem;">
-      <button class="icon-btn" onclick="toggleSidebar()">☰</button>
-      <div class="site-title">免疫与病原 · 复习</div>
-    </div>
-    <div class="header-right">
-      <button class="icon-btn" id="btnExpandAll" onclick="toggleAll()">↕</button>
-      <button class="icon-btn" id="btnHideAnswer" onclick="toggleHideAnswer()">👁</button>
-      <button class="icon-btn" id="btnFlashcard" onclick="toggleFlashcard()">🃏</button>
-    </div>
-  </div>
-  <div class="header-search-row"><div class="search-box"><input type="text" id="searchInput" placeholder="搜索知识点…" autocomplete="off"></div></div>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="hdr">
+<div class="hdr-inner">
+  <h1>病理学重点<span>Pathology Review</span></h1>
+  <nav class="nav-links">
+    <a href="#terms">名词解释</a>
+    <a href="#knowledge">知识点</a>
+    <a href="#essay">简答题</a>
+  </nav>
+  <div class="stats">29 术语 · 95 知识点 · 9 简答</div>
+</div>
 </header>
-<div class="layout">
-<aside class="sidebar" id="sidebar">
-  <div class="sidebar-title">目录导航</div>
-  <nav id="nav"></nav>
-  <div class="sidebar-stats">
-    <div class="stats-label">学习进度</div>
-    <div class="stats-bar"><div class="stats-fill" id="statsFill" style="width:0%"></div></div>
-    <div class="stats-text" id="statsText">0/0 (0%)</div>
-  </div>
-</aside>
-<main class="main-content" id="mainContent">
-  <div class="flashcard-section" id="flashcardArea">
-    <div class="flashcard-counter" id="flashcardCounter"></div>
-    <div class="flashcard" id="flashcard"><div class="flashcard-inner">
-      <div class="flashcard-front" onclick="fcFlip()"><div class="flashcard-q" id="fcFront"></div><div class="flashcard-hint">点击翻转 / 左右滑动切换</div></div>
-      <div class="flashcard-back" id="fcBack" onclick="fcFlip()"></div>
-    </div></div>
-    <div class="flashcard-nav"><button onclick="fcPrev()">← 上一题</button><button onclick="fcFlip()">翻转</button><button onclick="fcNext()">下一题 →</button></div>
-    <div class="swipe-hint">💡 左右滑动卡片切换</div>
-  </div>
 
-<!-- ═══════════════ PART A: 病原生物学 ═══════════════ -->
+<!-- ═══════════ MAIN ═══════════ -->
+<div class="main">
 
-<div class="part-divider"><span class="part-badge" style="background:var(--red);">病原生物学</span></div>
+<!-- ──────── SECTION 1: 名词解释 ──────── -->
+<section id="terms" class="sec">
+<div class="sec-hd"><h2>一、名词解释</h2><span class="badge">29个术语</span></div>
 
-<!-- CH1 -->
+<!-- 细胞与组织损伤与修复 -->
+<div class="cat-label" style="--cat-c:var(--cc)">细胞与组织损伤与修复</div>
+<div class="term-grid">
 
-<section class="chapter" id="ch1"><div class="chapter-header" style="border-color:var(--red);"><span class="chapter-num" style="background:var(--red);">第一章</span><span class="chapter-title">病原生物学绪论</span></div>
-
-<div class="card" data-qa="医学微生物三类|①非细胞型：病毒。②原核细胞型：细菌、放线菌、支原体、衣原体、螺旋体、立克次体。③真核细胞型：真菌。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--red-light);color:var(--red);">重点</span><span class="card-label">医学微生物种类</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>类型</th><th>代表</th></tr><tr><td><span class="keyword">非细胞型</span></td><td><span class="principle">病毒</span></td></tr><tr><td><span class="keyword">原核细胞型</span></td><td>细菌、放线菌、支原体、衣原体、螺旋体、立克次体</td></tr><tr><td><span class="keyword">真核细胞型</span></td><td><span class="keyword">真菌</span></td></tr></table></div><div class="mnemonic">非病毒，原六菌，真真菌</div></div></div></div>
-
-<div class="card" data-qa="正常微生物群作用|①生物拮抗 ②营养作用 ③免疫作用 ④抗衰老 ⑤抗肿瘤"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--red-light);color:var(--red);">要点</span><span class="card-label">正常微生物群的生理作用</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><ul class="list-styled"><li>①<span class="keyword">生物拮抗</span></li><li>②<span class="keyword">营养作用</span></li><li>③<span class="keyword">免疫作用</span></li><li>④<span class="keyword">抗衰老作用</span></li><li>⑤<span class="keyword">抗肿瘤作用</span></li></ul><div class="mnemonic">生营免衰瘤</div></div></div></div>
-
-<div class="card" data-qa="条件致病菌三条件|①菌群失调 ②免疫力下降 ③寄居部位改变"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--red-light);color:var(--red);">重点</span><span class="card-label">条件致病菌的三个条件</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><ul class="list-styled"><li>①<span class="keyword">菌群失调</span></li><li>②<span class="keyword">免疫力下降</span></li><li>③<span class="keyword">寄居部位改变</span></li></ul><div class="mnemonic">菌免寄</div></div></div></div>
-
-<div class="card" data-qa="消毒灭菌无菌|消毒：杀灭病原不一定杀灭芽胞。灭菌：杀灭所有含芽胞。无菌：无活病原。高压蒸汽灭菌103.4kPa/121.3℃/15-20min。紫外线破坏DNA，265-266nm最强。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--red-light);color:var(--red);">名词</span><span class="card-label">消毒、灭菌与无菌</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><ul class="list-styled"><li><span class="keyword">消毒</span>：杀灭病原，<span class="principle">不一定杀灭芽胞</span></li><li><span class="keyword">灭菌</span>：杀灭<span class="principle">含芽胞</span>所有微生物</li><li><span class="keyword">无菌</span>：无任何活病原生物</li></ul><div style="margin-top:.4rem;"><span class="def-term">高压蒸汽灭菌</span>：<span class="principle">103.4kPa / 121.3℃ / 15~20min</span><br><span class="def-term">紫外线</span>：<span class="keyword">破坏DNA</span>，<span class="principle">265~266nm</span>最强</div></div></div></div>
-</section>
-
-<!-- CH2 -->
-
-<section class="chapter" id="ch2"><div class="chapter-header" style="border-color:var(--coral);"><span class="chapter-num" style="background:var(--coral);">第二章</span><span class="chapter-title">细菌学总论</span></div>
-
-<div class="card" data-qa="细菌基本形态结构|微米为单位。球菌、杆菌、螺形菌。基本结构外→内：细胞壁、细胞膜、细胞质、核质。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--coral-light);color:var(--coral);">基础</span><span class="card-label">细菌基本形态与结构</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content">单位：<span class="principle">微米（μm）</span>。三形态：<span class="keyword">球菌、杆菌、螺形菌</span>。<br>基本结构（外→内）：<span class="keyword">细胞壁→细胞膜→细胞质→核质</span></div></div></div>
-
-<div class="card" data-qa="G+与G-菌细胞壁区别|均含肽聚糖。G+：骨架+四肽+五肽交联桥，三维，特有磷壁酸。G-：骨架+四肽无交联桥，二维，特有外膜。青霉素→交联位置，溶菌酶→β-1,4糖苷键。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--coral-light);color:var(--coral);">核心</span><span class="card-label">G⁺与G⁻菌细胞壁区别</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content">均含<span class="keyword">肽聚糖</span>。<div class="table-wrap"><table class="styled-table"><tr><th>比较</th><th>G⁺</th><th>G⁻</th></tr><tr><td>组成</td><td><span class="keyword">骨架+四肽+五肽交联桥</span></td><td><span class="keyword">骨架+四肽</span>（无交联桥）</td></tr><tr><td>结构</td><td><span class="principle">三维空间</span></td><td><span class="principle">二维平面</span></td></tr><tr><td>特有</td><td><span class="keyword">磷壁酸</span></td><td><span class="keyword">外膜</span></td></tr></table></div><div class="mnemonic">阳三阴二，阳磷阴膜</div><div style="margin-top:.4rem;"><span class="def-term">青霉素</span>→交联桥<span class="keyword">交联位置</span><br><span class="def-term">溶菌酶</span>→<span class="keyword">β-1,4糖苷键</span></div></div></div></div>
-
-<div class="card" data-qa="细菌特殊结构|荚膜：增强致病性。鞭毛：运动器官，免疫原性。菌毛：普通黏附，性菌毛传递遗传物质。芽孢：抵抗力强，鉴别。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--coral-light);color:var(--coral);">重点</span><span class="card-label">细菌特殊结构及意义</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>结构</th><th>意义</th></tr><tr><td><span class="keyword">荚膜</span></td><td>增强<span class="principle">致病性</span></td></tr><tr><td><span class="keyword">鞭毛</span></td><td><span class="principle">运动器官</span>；免疫原性</td></tr><tr><td><span class="keyword">菌毛</span></td><td>普通→<span class="keyword">黏附</span>；性菌毛→<span class="keyword">传递遗传物质</span></td></tr><tr><td><span class="keyword">芽孢</span></td><td><span class="principle">抵抗力强</span>；鉴别细菌</td></tr></table></div><div class="mnemonic">荚致鞭动菌黏芽鉴</div></div></div></div>
-
-<div class="card" data-qa="细菌生长繁殖|条件：营养温度酸碱度气体渗透压。兼性厌氧菌（大多数病原菌）。二分裂。大多数20-30min，结核杆菌18-20h。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--coral-light);color:var(--coral);">基础</span><span class="card-label">细菌生长繁殖</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content">条件：<span class="keyword">营养、温度、酸碱度、气体、渗透压</span><br><span class="principle">兼性厌氧菌</span>（大多数病原菌）。<span class="keyword">二分裂</span>。大多数<span class="principle">20~30min</span>，<span class="keyword">结核杆菌</span><span class="principle">18~20h</span>。</div></div></div>
-
-<div class="card" data-qa="生长曲线四期|①迟缓期 ②对数生长期：形态最典型 ③稳定期：代谢产物开始产生 ④衰亡期"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--coral-light);color:var(--coral);">要点</span><span class="card-label">细菌生长曲线</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><ul class="list-styled"><li>①<span class="keyword">迟缓期</span></li><li>②<span class="keyword">对数生长期</span>：形态染色性<span class="principle">最典型</span></li><li>③<span class="keyword">稳定期</span>：<span class="principle">代谢产物开始产生</span></li><li>④<span class="keyword">衰亡期</span></li></ul><div class="mnemonic">迟对稳衰；对数典型，稳产代谢</div></div></div></div>
-
-<div class="card" data-qa="代谢产物|致病：热原质毒素侵袭性酶。治疗：抗生素维生素。鉴别：色素细菌素。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--coral-light);color:var(--coral);">重点</span><span class="card-label">合成代谢产物及医学意义</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>类别</th><th>产物</th></tr><tr><td><span class="principle">致病</span></td><td><span class="keyword">热原质、毒素、侵袭性酶</span></td></tr><tr><td><span class="principle">治疗</span></td><td><span class="keyword">抗生素、维生素</span></td></tr><tr><td><span class="principle">鉴别</span></td><td><span class="keyword">色素、细菌素</span></td></tr></table></div></div></div></div>
-
-<div class="card" data-qa="致病机制与类毒素|侵袭力和毒素。类毒素：外毒素经0.3%-0.4%甲醛脱毒，无毒有免疫原性。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--coral-light);color:var(--coral);">重点</span><span class="card-label">细菌致病机制与类毒素</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content">致病：<span class="keyword">侵袭力</span>和<span class="keyword">毒素</span>。<br><span class="def-term">类毒素</span>：外毒素经<span class="principle">0.3%~0.4%甲醛</span>脱毒→无毒但有<span class="keyword">免疫原性</span>。</div></div></div>
-
-<div class="card" data-qa="外毒素与内毒素区别|外毒素：G+分泌，蛋白质，不耐热，抗原性强可制类毒素，特异组织毒性。内毒素：G-菌壁，脂多糖LPS，耐热，抗原性弱，全身反应发热。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--coral-light);color:var(--coral);">核心</span><span class="card-label">外毒素与内毒素的主要区别</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>比较</th><th>外毒素</th><th>内毒素</th></tr><tr><td>来源</td><td><span class="keyword">G⁺菌</span>及部分G⁻<span class="keyword">分泌</span></td><td><span class="keyword">G⁻菌壁</span></td></tr><tr><td>化学本质</td><td><span class="keyword">蛋白质</span></td><td><span class="keyword">脂多糖LPS</span></td></tr><tr><td>稳定性</td><td><span class="principle">不耐热</span></td><td><span class="principle">耐热</span></td></tr><tr><td>抗原性</td><td><span class="principle">强</span>，可制类毒素</td><td><span class="principle">弱</span></td></tr><tr><td>毒性</td><td><span class="keyword">特异组织/器官</span></td><td><span class="keyword">全身反应</span>（发热等）</td></tr></table></div><div class="mnemonic">外蛋不热强特异，内脂耐热弱全身</div></div></div></div>
-
-<div class="card" data-qa="全身感染五型|毒血症：局部不入血（破伤风）。内毒素血症。菌血症：一时性入血未繁殖（伤寒早期）。败血症：入血大量繁殖。脓毒血症：化脓性菌入血繁殖（金葡菌）。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--coral-light);color:var(--coral);">核心</span><span class="card-label">全身感染的类型</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>类型</th><th>特征</th><th>举例</th></tr><tr><td><span class="keyword">毒血症</span></td><td><span class="principle">不入血</span></td><td>破伤风</td></tr><tr><td><span class="keyword">内毒素血症</span></td><td>内毒素入血</td><td>—</td></tr><tr><td><span class="keyword">菌血症</span></td><td><span class="principle">一时性入血未繁殖</span></td><td>伤寒早期</td></tr><tr><td><span class="keyword">败血症</span></td><td><span class="principle">入血大量繁殖</span></td><td>高热瘀斑</td></tr><tr><td><span class="keyword">脓毒血症</span></td><td><span class="principle">化脓性菌</span>入血</td><td>金葡菌</td></tr></table></div><div class="mnemonic">菌一败大，脓化菌</div></div></div></div>
-
-<div class="card" data-qa="感染类型|隐性感染、显性感染（急性慢性局部全身）、带菌状态。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--coral-light);color:var(--coral);">要点</span><span class="card-label">感染的类型</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><ul class="list-styled"><li>①<span class="keyword">隐性感染</span></li><li>②<span class="keyword">显性感染</span>：急性/慢性；局部/全身</li><li>③<span class="keyword">带菌状态</span></li></ul></div></div></div>
-</section>
-
-<!-- CH3 -->
-
-<section class="chapter" id="ch3"><div class="chapter-header" style="border-color:var(--cyan);"><span class="chapter-num" style="background:var(--cyan);">第三章</span><span class="chapter-title">病毒学总论</span></div>
-
-<div class="card" data-qa="病毒定义与结构|非细胞型，只含一种核酸，严格细胞内寄生，复制增殖。单位nm。基本：核心+衣壳=核衣壳。特殊：包膜和刺突。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--cyan-light);color:var(--cyan);">名词</span><span class="card-label">病毒的定义与结构</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><span class="def-term">病毒</span>：<span class="keyword">非细胞型</span>，只含一种核酸、严格细胞内寄生、以<span class="keyword">复制</span>增殖。单位<span class="principle">nm</span>。<br>基本：<span class="keyword">核心+衣壳</span>=<span class="principle">核衣壳</span>。特殊：<span class="keyword">包膜</span>和<span class="keyword">刺突</span>。</div></div></div>
-
-<div class="card" data-qa="病毒复制与异常增殖|复制：吸附→穿入→脱壳→生物合成→组装释放。缺陷病毒如丁型肝炎。顿挫感染。干扰现象。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--cyan-light);color:var(--cyan);">重点</span><span class="card-label">病毒复制周期与异常增殖</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="flow-box"><div class="flow-step">吸附</div><span class="flow-arrow">→</span><div class="flow-step">穿入</div><span class="flow-arrow">→</span><div class="flow-step">脱壳</div><span class="flow-arrow">→</span><div class="flow-step highlight">生物合成</div><span class="flow-arrow">→</span><div class="flow-step">组装与释放</div></div><div class="mnemonic">吸穿脱生组</div><div class="table-wrap" style="margin-top:.5rem;"><table class="styled-table"><tr><th>类型</th><th>说明</th><th>举例</th></tr><tr><td><span class="keyword">缺陷病毒</span></td><td>基因组不完整</td><td><span class="principle">丁型肝炎病毒</span></td></tr><tr><td><span class="keyword">顿挫感染</span></td><td>宿主缺乏复制条件</td><td>—</td></tr><tr><td><span class="keyword">干扰现象</span></td><td>一种抑制另一种</td><td>—</td></tr></table></div></div></div></div>
-
-<div class="card" data-qa="病毒传播与预防|垂直（胎盘产道哺乳）和水平传播。人工主动免疫（减毒活疫苗最好）、人工被动免疫。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--cyan-light);color:var(--cyan);">要点</span><span class="card-label">病毒传播与预防</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content">传播：<span class="keyword">垂直</span>（胎盘/产道/哺乳）和<span class="keyword">水平</span>。<br>预防：<span class="keyword">人工主动免疫</span>（<span class="principle">减毒活疫苗</span>最好）、<span class="keyword">人工被动免疫</span>。</div></div></div>
-</section>
-
-<!-- CH4 -->
-
-<section class="chapter" id="ch4"><div class="chapter-header" style="border-color:var(--slate);"><span class="chapter-num" style="background:var(--slate);">第四章</span><span class="chapter-title">常见致病病毒</span></div>
-
-<div class="card" data-qa="HBV基因与抗原|环状双链DNA。HBsAg感染标志→抗HBs保护性抗体。HBeAg复制活跃→抗HBe预后良好。HBcAg→抗HBc。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--slate-light);color:var(--slate);">核心</span><span class="card-label">HBV基因结构与抗原组成</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content">HBV为<span class="keyword">环状双链DNA</span>病毒。<div class="table-wrap"><table class="styled-table"><tr><th>抗原</th><th>意义</th><th>抗体</th></tr><tr><td><span class="keyword">HBsAg</span></td><td>感染标志</td><td><span class="keyword">抗HBs</span>（<span class="principle">保护性</span>）</td></tr><tr><td><span class="keyword">HBeAg</span></td><td><span class="principle">复制活跃</span></td><td><span class="keyword">抗HBe</span>（<span class="principle">预后良好</span>）</td></tr><tr><td><span class="keyword">HBcAg</span></td><td>—</td><td><span class="keyword">抗HBc</span></td></tr></table></div><div class="mnemonic">S感染标志，e复制标志；抗HBs保护，抗HBe好转</div></div></div></div>
-
-<div class="card" data-qa="常见致病病毒汇总|五种肝炎甲乙丙丁戊。甲肝粪-口途径。乙肝血液垂直接触传播。丁肝缺陷病毒。疱疹潜伏性感染。HIV性血液垂直传播。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--slate-light);color:var(--slate);">核心</span><span class="card-label">常见致病病毒汇总</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>病毒</th><th>要点</th></tr><tr><td><span class="keyword">甲肝</span></td><td><span class="principle">粪-口途径</span></td></tr><tr><td><span class="keyword">乙肝</span></td><td>血液/垂直/接触传播</td></tr><tr><td><span class="keyword">丁肝</span></td><td><span class="principle">缺陷病毒</span></td></tr><tr><td><span class="keyword">疱疹</span></td><td><span class="principle">潜伏性感染</span></td></tr><tr><td><span class="keyword">HIV</span></td><td>性/血液/垂直传播</td></tr></table></div></div></div></div>
-</section>
-
-<!-- ═══════════════ PART B: 免疫学 ═══════════════ -->
-
-<div class="part-divider"><span class="part-badge" style="background:var(--blue);">免疫学</span></div>
-
-<!-- CH5 -->
-
-<section class="chapter" id="ch5"><div class="chapter-header" style="border-color:var(--blue);"><span class="chapter-num" style="background:var(--blue);">第五章</span><span class="chapter-title">免疫学绪论</span></div>
-
-<div class="card" data-qa="免疫定义|识别和清除抗原性异物，维持内环境稳定。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--blue-light);color:var(--blue);">名词</span><span class="card-label">免疫</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><span class="def-term">免疫</span>：<span class="keyword">识别和清除抗原性异物</span>，维持内环境稳定。</div></div></div>
-
-<div class="card" data-qa="免疫三大功能|防御：正常抗感染，异常超敏/缺陷。自稳：正常清衰老，异常自身免疫病。监视：正常清突变，异常肿瘤。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--blue-light);color:var(--blue);">核心</span><span class="card-label">免疫的功能（正常与异常）</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>功能</th><th>正常</th><th>异常</th></tr><tr><td><span class="keyword">免疫防御</span></td><td>抵抗病原微生物</td><td><span class="principle">超敏反应</span> / <span class="principle">免疫缺陷</span></td></tr><tr><td><span class="keyword">免疫自稳</span></td><td>清除衰老损伤细胞</td><td><span class="principle">自身免疫病</span></td></tr><tr><td><span class="keyword">免疫监视</span></td><td>清除突变细胞</td><td><span class="principle">肿瘤发生</span></td></tr></table></div><div class="mnemonic">防御防感染，自稳清废物，监视控肿瘤</div></div></div></div>
-
-<div class="card" data-qa="免疫系统组成与类型|组成：免疫器官组织、免疫细胞、免疫分子。固有免疫：屏障+细胞+分子。适应性免疫：体液+细胞（T和B淋巴细胞）。天花第一次。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--blue-light);color:var(--blue);">基础</span><span class="card-label">免疫系统组成与类型</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content">组成：<span class="keyword">免疫器官组织、免疫细胞、免疫分子</span><div class="table-wrap"><table class="styled-table"><tr><th>类型</th><th>组成</th></tr><tr><td><span class="keyword">固有免疫</span></td><td>屏障+固有免疫细胞+固有免疫分子</td></tr><tr><td><span class="keyword">适应性免疫</span></td><td><span class="principle">体液+细胞免疫</span>（T和B淋巴细胞）</td></tr></table></div>天花——人类第一次免疫实践</div></div></div>
-</section>
-
-<!-- CH6 -->
-
-<section class="chapter" id="ch6"><div class="chapter-header" style="border-color:var(--navy);"><span class="chapter-num" style="background:var(--navy);">第六章</span><span class="chapter-title">免疫器官与组织</span></div>
-
-<div class="card" data-qa="免疫器官|淋巴结T75%B25%。脾T40%B60%。次级淋巴滤泡=生发中心。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--navy-light);color:var(--navy);">重点</span><span class="card-label">免疫器官的特点</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>器官</th><th>T</th><th>B</th></tr><tr><td><span class="keyword">淋巴结</span></td><td><span class="principle">75%</span></td><td>25%</td></tr><tr><td><span class="keyword">脾</span></td><td>40%</td><td><span class="principle">60%</span></td></tr></table></div><div class="mnemonic">淋巴T多75，脾B多60</div></div></div></div>
-</section>
-
-<!-- CH7 -->
-
-<section class="chapter" id="ch7"><div class="chapter-header" style="border-color:var(--purple);"><span class="chapter-num" style="background:var(--purple);">第七章</span><span class="chapter-title">抗原</span></div>
-
-<div class="card" data-qa="抗原概念|能与TCR/BCR特异性结合使其活化增殖分化产生应答产物并能与之结合的物质。特异性：免疫原性+免疫反应性。表位决定特异性。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--purple-light);color:var(--purple);">名词</span><span class="card-label">抗原的概念</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><span class="def-term">抗原[Ag]</span>：能与<span class="keyword">TCR/BCR</span>特异性结合使其活化增殖分化产生应答产物并能与之结合的物质。特异性：①<span class="keyword">免疫原性</span> ②<span class="keyword">免疫反应性</span>。<span class="def-term">抗原表位</span>：决定特异性的特殊化学基团。</div></div></div>
-
-<div class="card" data-qa="T与B细胞表位比较|T细胞：顺序表位，8-12氨基酸，需MHC，位于内部。B细胞：构象表位为主，5-15氨基酸，不需MHC，位于表面。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--purple-light);color:var(--purple);">核心</span><span class="card-label">T细胞表位与B细胞表位比较</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>特征</th><th>T细胞表位</th><th>B细胞表位</th></tr><tr><td>类型</td><td><span class="principle">顺序表位</span></td><td><span class="principle">构象表位</span>为主</td></tr><tr><td>大小</td><td><span class="keyword">8~12氨基酸</span></td><td>5~15氨基酸</td></tr><tr><td>MHC</td><td><span class="principle">有</span></td><td><span class="principle">无</span></td></tr><tr><td>位置</td><td>抗原<span class="keyword">内部</span></td><td>抗原<span class="keyword">表面</span></td></tr></table></div><div class="mnemonic">T顺序需MHC在内部，B构象不需MHC在表面</div></div></div></div>
-
-<div class="card" data-qa="抗原分类|完全抗原（有免疫原性和反应性）和半抗原（只有反应性，半抗原+载体=完全抗原）。亲缘：异种同种异型自身异嗜性。TD-Ag和TI-Ag。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--purple-light);color:var(--purple);">核心</span><span class="card-label">抗原的分类</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><strong>按性能：</strong><ul class="list-styled"><li><span class="keyword">完全抗原</span>：同时有免疫原性和免疫反应性</li><li><span class="keyword">半抗原</span>：只有<span class="principle">免疫反应性</span>；半抗原+载体→完全抗原</li></ul><strong>按亲缘：</strong><ul class="list-styled"><li><span class="keyword">异种抗原</span></li><li><span class="keyword">同种异型抗原</span>（血型、HLA）</li><li><span class="keyword">自身抗原</span>（修饰/隐蔽）</li><li><span class="keyword">异嗜性抗原</span>（不同种属共同抗原）</li></ul><strong>按Th辅助：</strong><span class="keyword">TD-Ag</span> / <span class="keyword">TI-Ag</span></div></div></div>
-
-<div class="card" data-qa="TD-Ag与TI-Ag区别|TD-Ag：需Th辅助，多种抗体IgM→IgG，有免疫记忆，多数蛋白质。TI-Ag：不需Th，主要IgM，无记忆，多糖脂多糖。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--purple-light);color:var(--purple);">核心</span><span class="card-label">TD-Ag与TI-Ag的区别</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>特征</th><th>TD-Ag</th><th>TI-Ag</th></tr><tr><td>Th辅助</td><td><span class="principle">需要</span></td><td><span class="principle">不需要</span></td></tr><tr><td>抗体</td><td><span class="keyword">多种</span>（IgM→IgG等）</td><td>主要<span class="keyword">IgM</span></td></tr><tr><td>记忆</td><td><span class="principle">有</span></td><td><span class="principle">无</span></td></tr><tr><td>举例</td><td><span class="keyword">蛋白质</span></td><td><span class="keyword">多糖、脂多糖</span></td></tr></table></div><div class="mnemonic">TD要Th多种记蛋白，TI不要Th单IgM记多糖</div></div></div></div>
-
-<div class="card" data-qa="外源性与内源性抗原提呈|外源性：APC吞噬→溶酶体→MHC-II→CD4+Th。内源性：细胞内合成→蛋白酶体→MHC-I→CD8+Tc。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--purple-light);color:var(--purple);">重点</span><span class="card-label">外源性抗原与内源性抗原</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>比较</th><th>外源性抗原</th><th>内源性抗原</th></tr><tr><td>来源</td><td><span class="keyword">细胞外</span></td><td><span class="keyword">细胞内</span>合成</td></tr><tr><td>降解</td><td><span class="keyword">内体/溶酶体</span></td><td><span class="keyword">蛋白酶体</span></td></tr><tr><td>提呈分子</td><td><span class="principle">MHC-II</span></td><td><span class="principle">MHC-I</span></td></tr><tr><td>提呈给</td><td><span class="keyword">CD4⁺Th</span></td><td><span class="keyword">CD8⁺Tc</span></td></tr></table></div><div class="flow-box"><div style="flex:1;min-width:180px;"><div style="font-weight:700;font-size:.75rem;color:var(--accent);margin-bottom:.2rem;">外源性途径</div><div class="flow-box"><div class="flow-step">APC吞噬</div><span class="flow-arrow">→</span><div class="flow-step">溶酶体</div><span class="flow-arrow">→</span><div class="flow-step highlight">MHC-II</div><span class="flow-arrow">→</span><div class="flow-step">CD4⁺Th</div></div></div></div><div class="flow-box"><div style="flex:1;min-width:180px;"><div style="font-weight:700;font-size:.75rem;color:var(--accent);margin-bottom:.2rem;">内源性途径</div><div class="flow-box"><div class="flow-step">细胞内合成</div><span class="flow-arrow">→</span><div class="flow-step">蛋白酶体</div><span class="flow-arrow">→</span><div class="flow-step highlight">MHC-I</div><span class="flow-arrow">→</span><div class="flow-step">CD8⁺Tc</div></div></div></div><div class="mnemonic">外MHC-II走CD4，内MHC-I走CD8；外溶酶体，内蛋白酶</div></div></div></div>
-
-<div class="card" data-qa="影响免疫原性因素|异物性。注射途径：皮内>皮下>肌肉>腹腔静脉>口服。蛋白质免疫原性较强。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--purple-light);color:var(--purple);">要点</span><span class="card-label">影响抗原免疫原性的因素</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><ul class="list-styled"><li><span class="keyword">异物性</span></li><li>途径：<span class="principle">皮内＞皮下＞肌肉＞腹腔/静脉＞口服</span></li><li><span class="keyword">蛋白质</span>免疫原性较强</li></ul></div></div></div>
-</section>
-
-<!-- CH8 -->
-
-<section class="chapter" id="ch8"><div class="chapter-header" style="border-color:var(--green);"><span class="chapter-num" style="background:var(--green);">第八章</span><span class="chapter-title">免疫分子</span></div>
-
-<div class="card" data-qa="抗体与Ig|Ab：B→浆细胞产生。Ig：有抗体活性或相似结构。抗体都是Ig，Ig不一定都是抗体。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--green-light);color:var(--green);">名词</span><span class="card-label">抗体与免疫球蛋白</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><span class="def-term">Ab</span>：B→<span class="keyword">浆细胞</span>。<span class="def-term">Ig</span>：有抗体活性或相似结构。<br><span class="principle">抗体都是Ig，Ig不一定都是抗体</span>。</div></div></div>
-
-<div class="card" data-qa="Ig基本结构|两条重链H+两条轻链L通过二硫键连接Y形。Fab段N端含VH+VL决定特异性。Fc段C端含CH+CL决定生物学活性。铰链区赋予柔性。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--green-light);color:var(--green);">重点</span><span class="card-label">免疫球蛋白的基本结构</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="flow-box"><div class="flow-step" style="text-align:center;"><div style="font-size:.62rem;color:var(--text-muted);">Y形顶部</div>Fab段（抗原结合）<div class="flow-note">VH+VL（可变区）→<span class="principle">特异性</span></div></div><div class="flow-step highlight" style="text-align:center;">铰链区<div class="flow-note">赋予柔性</div></div><div class="flow-step" style="text-align:center;"><div style="font-size:.62rem;color:var(--text-muted);">Y形柄部</div>Fc段（可结晶）<div class="flow-note">CH+CL（恒定区）→<span class="principle">生物学活性</span></div></div></div><div class="table-wrap"><table class="styled-table"><tr><th>组成</th><th>说明</th></tr><tr><td><span class="keyword">两条重链H</span></td><td>含VH和CH1/CH2/CH3</td></tr><tr><td><span class="keyword">两条轻链L</span></td><td>含VL和CL</td></tr><tr><td><span class="keyword">二硫键</span></td><td>连接重链与轻链</td></tr><tr><td><span class="keyword">Fab段</span></td><td>N端，<span class="principle">抗原结合</span>，含CDR</td></tr><tr><td><span class="keyword">Fc段</span></td><td>C端，决定<span class="principle">生物学活性</span></td></tr></table></div><div class="mnemonic">Y形两H两L，Fab结合特异性，Fc活性决定体</div></div></div></div>
-
-<div class="card" data-qa="抗体生物学活性|中和作用、激活补体经典途径、调理作用Fab+抗原Fc+吞噬、ADCC(Fc+NK杀伤靶细胞)、介导I型超敏、跨细胞输送、免疫调节。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--green-light);color:var(--green);">核心</span><span class="card-label">抗体的生物学活性</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><ul class="list-styled"><li><span class="keyword">中和作用</span>：抗毒素中和外毒素</li><li><span class="keyword">激活补体</span>：经典途径</li><li><span class="keyword">调理作用</span>：Fab+抗原→Fc+吞噬细胞FcR</li><li><span class="keyword">ADCC</span>：Fc+NK细胞→杀伤靶细胞</li><li>介导<span class="keyword">Ⅰ型超敏</span></li><li><span class="keyword">跨细胞输送</span></li><li><span class="keyword">免疫调节</span></li></ul><div class="mnemonic">中补调ADCC跨调</div></div></div></div>
-
-<div class="card" data-qa="五类Ig特性|IgG：含量最高唯一通过胎盘。IgA：分泌型黏膜免疫。IgM：分子量最大最早产生→早期感染诊断。IgE：含量最低→I型超敏。IgD：B细胞成熟分化标志。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--green-light);color:var(--green);">核心</span><span class="card-label">五类免疫球蛋白的特性与医学意义</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>Ig</th><th>特征</th><th>意义</th></tr><tr><td><span class="keyword">IgG</span></td><td>含量<span class="principle">最高</span>，<span class="principle">唯一通过胎盘</span></td><td>新生儿抗感染</td></tr><tr><td><span class="keyword">IgA</span></td><td>分泌型</td><td>黏膜防御</td></tr><tr><td><span class="keyword">IgM</span></td><td>分子量<span class="principle">最大</span>，<span class="principle">最早产生</span></td><td><span class="principle">早期感染诊断</span></td></tr><tr><td><span class="keyword">IgE</span></td><td>含量<span class="principle">最低</span></td><td><span class="principle">Ⅰ型超敏</span></td></tr><tr><td><span class="keyword">IgD</span></td><td>B细胞表面</td><td><span class="keyword">成熟分化标志</span></td></tr></table></div><div class="mnemonic">GA最高过胎盘，MA最大最早，EA最低超敏，DA分化标志</div></div></div></div>
-
-<div class="card" data-qa="补体系统|来源肝细胞。经典途径（Ag-Ab→C3/C5转化酶→MAC）、旁路途径（直接激活C3）、MBL途径。功能：溶解细胞MAC、调理C3b、炎症介质C3a/C5a、免疫黏附C3b。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--green-light);color:var(--green);">重点</span><span class="card-label">补体系统</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content">来源：<span class="keyword">肝细胞</span><br><strong>三条激活途径：</strong><div style="margin-top:.4rem;"><div style="font-weight:700;font-size:.75rem;color:var(--accent);margin-bottom:.2rem;">①经典途径</div><div class="flow-box"><div class="flow-step">Ag-Ab复合物</div><span class="flow-arrow">→</span><div class="flow-step">C1→C4→C2</div><span class="flow-arrow">→</span><div class="flow-step highlight">C3转化酶</div><span class="flow-arrow">→</span><div class="flow-step">C5转化酶</div><span class="flow-arrow">→</span><div class="flow-step highlight">MAC</div></div></div><div style="margin-top:.4rem;"><div style="font-weight:700;font-size:.75rem;color:var(--accent);margin-bottom:.2rem;">②旁路途径</div><div class="flow-box"><div class="flow-step">微生物成分</div><span class="flow-arrow">→</span><div class="flow-step highlight">直接激活C3</div><span class="flow-arrow">→</span><div class="flow-step highlight">MAC</div></div></div><div style="margin-top:.4rem;"><div style="font-weight:700;font-size:.75rem;color:var(--accent);margin-bottom:.2rem;">③MBL途径</div><div class="flow-box"><div class="flow-step">MBL+甘露糖</div><span class="flow-arrow">→</span><div class="flow-step">MASP</div><span class="flow-arrow">→</span><div class="flow-step highlight">C3转化酶</div><span class="flow-arrow">→</span><div class="flow-step highlight">MAC</div></div></div><div class="mnemonic">经典靠抗体，旁路靠C3直接，MBL靠凝集素；三条终汇MAC</div><strong>生物学功能：</strong><div class="table-wrap"><table class="styled-table"><tr><th>功能</th><th>关键</th></tr><tr><td><span class="keyword">溶解细胞</span></td><td><span class="principle">MAC</span>（C5b~C9）</td></tr><tr><td><span class="keyword">调理作用</span></td><td><span class="principle">C3b</span></td></tr><tr><td><span class="keyword">炎症介质</span></td><td>C3a、C5a</td></tr><tr><td><span class="keyword">免疫黏附</span></td><td><span class="principle">C3b</span></td></tr></table></div></div></div></div>
-
-<div class="card" data-qa="MHC与HLA|MHC第6号染色体。遗传：高度多态性（最显著）、单体型、连锁不平衡。HLA-I类：α链+β2微球蛋白，几乎所有有核细胞，提呈内源性→CD8+Tc。HLA-II类：α链+β链，APC表面，提呈外源性→CD4+Th。功能：抗原呈递（最重要）、诱导T分化、约束免疫细胞、调控NK。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--green-light);color:var(--green);">核心</span><span class="card-label">MHC与HLA</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><span class="def-term">MHC</span>：<span class="principle">第6号染色体</span>。<br>HLA遗传特点：<ul class="list-styled"><li><span class="keyword">高度多态性</span>（<span class="principle">最显著</span>）</li><li><span class="keyword">单体型遗传</span></li><li><span class="keyword">连锁不平衡</span></li></ul><strong>HLA分子结构：</strong><div class="table-wrap"><table class="styled-table"><tr><th>类型</th><th>结构</th><th>分布</th><th>提呈</th></tr><tr><td><span class="keyword">HLA-I类</span></td><td><span class="principle">α链</span>（α1+α2构成抗原结合槽）+ <span class="keyword">β2微球蛋白</span></td><td>几乎所有<span class="keyword">有核细胞</span></td><td>内源性→<span class="keyword">CD8⁺Tc</span></td></tr><tr><td><span class="keyword">HLA-II类</span></td><td><span class="principle">α链</span>（α1）+ <span class="keyword">β链</span>（β1）构成抗原结合槽</td><td><span class="keyword">APC</span></td><td>外源性→<span class="keyword">CD4⁺Th</span></td></tr></table></div>功能：<ul class="list-styled"><li><span class="keyword">抗原呈递</span>（<span class="principle">最重要</span>）</li><li>诱导<span class="keyword">T细胞分化成熟</span></li><li><span class="keyword">约束免疫细胞</span>相互作用</li><li>调控<span class="keyword">NK细胞</span></li></ul><div class="mnemonic">高单连；传分约调</div></div></div></div>
-</section>
-
-<!-- CH9 -->
-
-<section class="chapter" id="ch9"><div class="chapter-header" style="border-color:var(--teal);"><span class="chapter-num" style="background:var(--teal);">第九章</span><span class="chapter-title">免疫细胞</span></div>
-
-<div class="card" data-qa="T细胞分化发育|骨髓干细胞→祖T→进入胸腺。DN期(CD4-CD8-)→DP期(CD4+CD8+)→阳性选择（与MHC结合存活）→阴性选择（清除自身反应性）→SP期(CD4+或CD8+成熟T)→输出外周。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--teal-light);color:var(--teal);">重点</span><span class="card-label">T淋巴细胞的分化和发育</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="flow-box"><div class="flow-step">骨髓干细胞</div><span class="flow-arrow">→</span><div class="flow-step">祖T细胞</div><span class="flow-arrow">→</span><div class="flow-step highlight">进入胸腺</div></div><strong>胸腺内发育：</strong><div class="flow-box"><div class="flow-step">DN<div class="flow-note">CD4⁻CD8⁻<br>双阴性</div></div><span class="flow-arrow">→</span><div class="flow-step">DP<div class="flow-note">CD4⁺CD8⁺<br>双阳性</div></div><span class="flow-arrow">→</span><div class="flow-step highlight">阳性选择<div class="flow-note">与MHC结合→<span class="principle">存活</span></div></div><span class="flow-arrow">→</span><div class="flow-step highlight">阴性选择<div class="flow-note">自身反应性克隆<span class="principle">清除</span></div></div><span class="flow-arrow">→</span><div class="flow-step">SP<div class="flow-note">CD4⁺或CD8⁺<br>成熟T细胞</div></div><span class="flow-arrow">→</span><div class="flow-step">输出外周</div></div><div class="mnemonic">骨髓生→胸腺育→DN→DP→阳性留阴性去→SP成熟出胸腺</div></div></div></div>
-
-<div class="card" data-qa="免疫细胞汇总|固有：单核巨噬NK树突状。专职APC表达MHC-II含单核巨噬树突状B细胞。T：TCR+CD3转导，CD4/CD8辅助，CD28-CD80共刺激。Th=CD4+，Tc=CD8+。B：BCR+CD79转导，CD19/CD21/CD81/CD225辅助，CD40-CD40L。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--teal-light);color:var(--teal);">核心</span><span class="card-label">免疫细胞汇总</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><strong>固有：</strong><span class="keyword">单核/巨噬、NK、树突状</span><br><strong>专职APC：</strong><span class="keyword">单核/巨噬、树突状、B细胞</span>（表达<span class="keyword">MHC-II</span>）<br><br><strong>T细胞：</strong><ul class="list-styled"><li><span class="keyword">TCR+CD3</span>（转导信号）</li><li>辅助：<span class="keyword">CD4/CD8</span></li><li>共刺激：<span class="keyword">CD28</span>—<span class="keyword">CD80</span></li></ul><span class="principle">Th=CD4⁺</span>，<span class="principle">Tc=CD8⁺</span><br><br><strong>B细胞：</strong><ul class="list-styled"><li><span class="keyword">BCR+CD79a/CD79b</span></li><li>辅助：<span class="keyword">CD19/CD21/CD81/CD225</span></li><li>共刺激：<span class="keyword">CD40</span>—<span class="keyword">CD40L</span></li></ul></div></div></div>
-</section>
-
-<!-- CH10 -->
-
-<section class="chapter" id="ch10"><div class="chapter-header" style="border-color:var(--olive);"><span class="chapter-num" style="background:var(--olive);">第十章</span><span class="chapter-title">免疫应答</span></div>
-
-<div class="card" data-qa="固有免疫应答|分子：补体、细胞因子、急性期蛋白、防御素/溶菌酶/乙型溶素。时相：瞬时→早期→适应性诱导。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--olive-light);color:var(--olive);">要点</span><span class="card-label">固有免疫应答</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content">分子：<span class="keyword">补体、细胞因子、急性期蛋白、防御素/溶菌酶/乙型溶素</span><br>时相：<span class="keyword">瞬时→早期→适应性诱导</span></div></div></div>
-
-<div class="card" data-qa="免疫应答基本过程|三阶段：①感应阶段APC摄取加工提呈抗原 ②反应阶段T/B活化增殖分化 ③效应阶段效应T/抗体发挥作用。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--olive-light);color:var(--olive);">大题</span><span class="card-label">免疫应答的基本过程</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><strong>三个阶段：</strong><div class="flow-box"><div class="flow-step highlight">①感应阶段<div class="flow-note">APC摄取、加工、<br>提呈抗原给T/B</div></div><span class="flow-arrow">→</span><div class="flow-step highlight">②反应阶段<div class="flow-note">T/B活化、增殖、分化<br>为效应细胞和记忆细胞</div></div><span class="flow-arrow">→</span><div class="flow-step highlight">③效应阶段<div class="flow-note">效应T细胞/抗体<br>发挥免疫效应</div></div></div><span class="principle">（论述大题，需结合教材展开详述）</span></div></div></div>
-
-<div class="card" data-qa="抗体产生一般规律|初次：潜伏期长1-2周，滴度低，IgM先出现，维持短。再次：潜伏期短2-3天，滴度高，IgG为主，亲和力高，维持长。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--olive-light);color:var(--olive);">重点</span><span class="card-label">抗体产生的一般规律</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>特征</th><th>初次应答</th><th>再次应答</th></tr><tr><td>潜伏期</td><td><span class="principle">长</span>（1~2周）</td><td><span class="principle">短</span>（2~3天）</td></tr><tr><td>滴度</td><td><span class="principle">低</span></td><td><span class="principle">高</span></td></tr><tr><td>主要抗体</td><td><span class="keyword">IgM</span>先</td><td><span class="keyword">IgG</span>为主</td></tr><tr><td>亲和力</td><td>低</td><td><span class="principle">高</span></td></tr><tr><td>维持</td><td><span class="principle">短</span></td><td><span class="principle">长</span></td></tr></table></div><div class="mnemonic">初次慢低M短，再次快高G长</div></div></div></div>
-</section>
-
-<!-- CH11 -->
-
-<section class="chapter" id="ch11"><div class="chapter-header" style="border-color:var(--rose);"><span class="chapter-num" style="background:var(--rose);">第十一章</span><span class="chapter-title">免疫病理（超敏反应）</span></div>
-
-<div class="card" data-qa="超敏反应分型|已致敏再次接触相同抗原的病理性免疫应答。Ⅰ速发型Ⅱ细胞毒型Ⅲ免疫复合物型Ⅳ迟发型。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--rose-light);color:var(--rose);">核心</span><span class="card-label">超敏反应的定义与分型</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><span class="def-term">超敏反应</span>：已致敏机体再次接触相同抗原→<span class="keyword">病理性免疫应答</span>。<div class="table-wrap"><table class="styled-table"><tr><th>型</th><th>别名</th></tr><tr><td><span class="keyword">Ⅰ型</span></td><td><span class="principle">速发型</span></td></tr><tr><td><span class="keyword">Ⅱ型</span></td><td><span class="principle">细胞毒型</span></td></tr><tr><td><span class="keyword">Ⅲ型</span></td><td><span class="principle">免疫复合物型</span></td></tr><tr><td><span class="keyword">Ⅳ型</span></td><td><span class="principle">迟发型</span></td></tr></table></div><div class="mnemonic">Ⅰ速Ⅱ毒Ⅲ复合Ⅳ迟</div></div></div></div>
-
-<div class="card" data-qa="I型超敏反应机制|致敏：变应原→B→IgE→Fc与肥大细胞结合。发敏：再次接触→IgE交联→脱颗粒。效应：组胺白三烯→毛细血管扩张通透性增加平滑肌收缩腺体分泌↑。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--rose-light);color:var(--rose);">论述</span><span class="card-label">Ⅰ型超敏反应的发生机制</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><strong>（论述题重点）</strong><br><br><strong>一、致敏阶段</strong><br><div class="flow-box"><div class="flow-step">变应原</div><span class="flow-arrow">→</span><div class="flow-step">B细胞</div><span class="flow-arrow">→</span><div class="flow-step highlight">IgE</div><span class="flow-arrow">→</span><div class="flow-step">Fc段+肥大细胞/<br>嗜碱性粒细胞</div><span class="flow-arrow">→</span><div class="flow-step highlight">致敏状态</div></div><br><strong>二、发敏阶段</strong><br><div class="flow-box"><div class="flow-step">相同变应原<br>再次进入</div><span class="flow-arrow">→</span><div class="flow-step highlight">与IgE交联</div><span class="flow-arrow">→</span><div class="flow-step highlight">脱颗粒</div></div><br><strong>三、效应阶段</strong><br><div class="flow-box"><div class="flow-step">释放活性介质<br><span class="flow-note">组胺、白三烯、<br>前列腺素</span></div><span class="flow-arrow">→</span><div class="flow-box" style="gap:.3rem;"><div class="flow-step">毛细血管扩张</div><div class="flow-step">通透性↑</div><div class="flow-step">平滑肌收缩</div><div class="flow-step">腺体分泌↑</div></div><span class="flow-arrow">→</span><div class="flow-step highlight">临床症状<br><span class="flow-note">荨麻疹、哮喘、<br>过敏性休克</span></div></div></div></div></div>
-
-<div class="card" data-qa="IIIIIIV型超敏|II型细胞毒：IgG/IgM+补体→靶细胞溶解。输血反应新生儿溶血自身免疫性溶血。III型复合物：Ag-Ab沉积→损伤。血清病肾小球肾炎类风湿SLE。IV型迟发：T细胞介导24-72h。接触性皮炎移植排斥结核菌素试验。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--rose-light);color:var(--rose);">重点</span><span class="card-label">Ⅱ、Ⅲ、Ⅳ型超敏反应</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>型</th><th>机制</th><th>常见疾病</th></tr><tr><td><span class="keyword">Ⅱ型</span><br>细胞毒型</td><td>IgG/IgM+补体→靶细胞<span class="principle">溶解</span></td><td>输血反应、<span class="keyword">新生儿溶血</span>、自身免疫性溶血</td></tr><tr><td><span class="keyword">Ⅲ型</span><br>免疫复合物型</td><td>Ag-Ab<span class="principle">复合物沉积</span>→损伤</td><td>血清病、<span class="keyword">肾小球肾炎</span>、类风湿、<span class="keyword">SLE</span></td></tr><tr><td><span class="keyword">Ⅳ型</span><br>迟发型</td><td><span class="principle">T细胞介导</span>，24~72h</td><td><span class="keyword">接触性皮炎</span>、移植排斥、<span class="keyword">结核菌素试验</span></td></tr></table></div><div class="mnemonic">II型抗体溶解，III型复合物沉积，IV型T细胞迟发</div></div></div></div>
-</section>
-
-<!-- CH12 -->
-
-<section class="chapter" id="ch12"><div class="chapter-header" style="border-color:var(--gold);"><span class="chapter-num" style="background:var(--gold);">第十二章</span><span class="chapter-title">免疫学应用</span></div>
-
-<div class="card" data-qa="免疫预防|人工主动免疫：接种疫苗诱导产生抗体或效应淋巴细胞。人工被动免疫：注射抗体如抗毒素，迅速获得免疫。"><div class="card-head" onclick="toggleCard(this)"><div class="card-head-left"><span class="card-tag" style="background:var(--gold-light);color:var(--gold);">重点</span><span class="card-label">免疫预防</span></div><div style="display:flex;align-items:center;gap:.3rem;"><button class="master-btn" onclick="event.stopPropagation();toggleMaster(this)">✓</button><span class="card-expand">▼</span></div></div><button class="reveal-btn" onclick="event.stopPropagation();this.previousElementSibling.click();this.remove();">显示答案</button><div class="card-body"><div class="card-content"><div class="table-wrap"><table class="styled-table"><tr><th>类型</th><th>方式</th><th>特点</th></tr><tr><td><span class="keyword">人工主动免疫</span></td><td>接种<span class="keyword">疫苗</span></td><td>诱导产生抗体/效应淋巴细胞</td></tr><tr><td><span class="keyword">人工被动免疫</span></td><td>注射<span class="keyword">抗体</span></td><td><span class="principle">迅速</span>获得免疫</td></tr></table></div><div class="mnemonic">主动打疫苗（慢持久），被动注抗体（快短暂）</div></div></div></div>
-</section>
-
-</main>
+<div class="tc" style="--cat-c:var(--cc)">
+  <div class="tc-head"><span class="tc-num">1</span><span class="tc-name">化生</span></div>
+  <p class="tc-def">一种<mark>分化成熟</mark>的组织因受刺激因素的作用而转化为另一种<mark>分化成熟</mark>组织的过程。</p>
 </div>
 
-<nav class="mobile-toolbar">
-  <button class="tb-btn" onclick="toggleSidebar()"><span class="tb-icon">☰</span><span class="tb-label">目录</span></button>
-  <button class="tb-btn" onclick="toggleAll()"><span class="tb-icon">↕</span><span class="tb-label">展开</span></button>
-  <button class="tb-btn" onclick="toggleFlashcard()"><span class="tb-icon">🃏</span><span class="tb-label">闪卡</span></button>
-  <button class="tb-btn" onclick="toggleHideAnswer()"><span class="tb-icon">👁</span><span class="tb-label">遮盖</span></button>
-  <button class="tb-btn" onclick="toggleShowMastered()"><span class="tb-icon">✓</span><span class="tb-label">已掌握</span></button>
-</nav>
+<div class="tc" style="--cat-c:var(--cc)">
+  <div class="tc-head"><span class="tc-num">2</span><span class="tc-name">玻璃样变性</span></div>
+  <p class="tc-def">在细胞或间质内出现<mark>红染、均质、半透明</mark>的<mark>蛋白性物质</mark>的蓄积。</p>
+</div>
 
-<div class="shortcut-hint" id="shortcuts"><strong>快捷键</strong><br><span class="kbd">J</span>/<span class="kbd">K</span> 上下 <span class="kbd">Enter</span> 展开 <span class="kbd">F</span> 闪卡 <span class="kbd">H</span> 遮盖 <span class="kbd">/</span> 搜索</div>
+<div class="tc" style="--cat-c:var(--cc)">
+  <div class="tc-head"><span class="tc-num">3</span><span class="tc-name">坏疽</span></div>
+  <p class="tc-def"><mark>较大面积坏死</mark>并伴有不同程度<mark>腐败菌感染</mark>，使坏死组织呈<mark>黑褐色</mark>者称为坏疽。</p>
+</div>
 
+<div class="tc" style="--cat-c:var(--cc)">
+  <div class="tc-head"><span class="tc-num">4</span><span class="tc-name">肉芽组织</span></div>
+  <p class="tc-def">即增生旺盛的幼稚结缔组织，主要由<mark>新生毛细血管</mark>和<mark>成纤维细胞</mark>构成，周围有<mark>炎细胞</mark>浸润。</p>
+</div>
+</div>
+
+<!-- 血液循环障碍 -->
+<div class="cat-label" style="--cat-c:var(--cb)">血液循环障碍</div>
+<div class="term-grid">
+
+<div class="tc" style="--cat-c:var(--cb)">
+  <div class="tc-head"><span class="tc-num">5</span><span class="tc-name">静脉性充血</span></div>
+  <p class="tc-def">由于<mark>静脉回流受阻</mark>，血液淤积于小静脉和毛细血管内，引起局部组织、器官血管内血量增多。又称<mark>被动性充血</mark>，简称<mark>淤血</mark>。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--cb)">
+  <div class="tc-head"><span class="tc-num">6</span><span class="tc-name">心力衰竭细胞</span></div>
+  <p class="tc-def">吞噬有<mark>含铁血黄素</mark>的<mark>巨噬细胞</mark>。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--cb)">
+  <div class="tc-head"><span class="tc-num">7</span><span class="tc-name">血栓形成</span></div>
+  <p class="tc-def">在<mark>活体</mark>的心脏或血管内血液<mark>有形成分</mark>形成<mark>固体质块</mark>的过程。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--cb)">
+  <div class="tc-head"><span class="tc-num">8</span><span class="tc-name">栓塞</span></div>
+  <p class="tc-def">循环血液中出现的<mark>不溶于血液的异常物质</mark>，随血液流动，<mark>阻塞管腔</mark>的现象。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--cb)">
+  <div class="tc-head"><span class="tc-num">9</span><span class="tc-name">梗死</span></div>
+  <p class="tc-def">局部组织、器官由于<mark>血流供应迅速中断</mark>而引起的<mark>缺血性坏死</mark>。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--cb)">
+  <div class="tc-head"><span class="tc-num">29</span><span class="tc-name">弥漫性血管内凝血（DIC）</span></div>
+  <p class="tc-def">在某些致病因素作用下，机体<mark>凝血系统被激活</mark>，大量可溶性促凝物质入血而引起的以<mark>凝血功能障碍</mark>为主要特征的病理过程。</p>
+</div>
+</div>
+
+<!-- 炎症 -->
+<div class="cat-label" style="--cat-c:var(--ci)">炎症</div>
+<div class="term-grid">
+
+<div class="tc" style="--cat-c:var(--ci)">
+  <div class="tc-head"><span class="tc-num">10</span><span class="tc-name">炎症</span></div>
+  <p class="tc-def">具有<mark>血管系统</mark>的活体组织对各种原因损伤因子的刺激所发生的一种以<mark>防御为主</mark>的基本病理过程。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--ci)">
+  <div class="tc-head"><span class="tc-num">11</span><span class="tc-name">炎症介质</span></div>
+  <p class="tc-def">又称化学介质，是细胞崩解或体液中产生的一类具有<mark>血管活性作用</mark>的物质，又称<mark>血管活性物质</mark>。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--ci)">
+  <div class="tc-head"><span class="tc-num">12</span><span class="tc-name">蜂窝织炎</span></div>
+  <p class="tc-def"><mark>疏松结缔组织</mark>由<mark>溶血性链球菌</mark>引起的<mark>弥漫性</mark>的化脓性炎症。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--ci)">
+  <div class="tc-head"><span class="tc-num">13</span><span class="tc-name">脓肿</span></div>
+  <p class="tc-def">由<mark>金黄色葡萄球菌</mark>引起的<mark>局限性</mark>化脓性炎症。</p>
+</div>
+</div>
+
+<!-- 肿瘤 -->
+<div class="cat-label" style="--cat-c:var(--ct)">肿瘤</div>
+<div class="term-grid">
+
+<div class="tc" style="--cat-c:var(--ct)">
+  <div class="tc-head"><span class="tc-num">14</span><span class="tc-name">癌</span></div>
+  <p class="tc-def">源于<mark>上皮组织</mark>的恶性肿瘤。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--ct)">
+  <div class="tc-head"><span class="tc-num">15</span><span class="tc-name">肉瘤</span></div>
+  <p class="tc-def">来源于<mark>间叶组织</mark>的恶性肿瘤。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--ct)">
+  <div class="tc-head"><span class="tc-num">16</span><span class="tc-name">异型性</span></div>
+  <p class="tc-def">肿瘤组织与正常组织在<mark>细胞形态</mark>和<mark>组织结构</mark>上的差异，仅指肿瘤的实质。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--ct)">
+  <div class="tc-head"><span class="tc-num">17</span><span class="tc-name">恶病质</span></div>
+  <p class="tc-def">恶性肿瘤晚期患者可发生严重<mark>消瘦、无力、贫血、全身衰竭</mark>，皮肤干枯呈黄褐色。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--ct)">
+  <div class="tc-head"><span class="tc-num">18</span><span class="tc-name">癌前病变</span></div>
+  <p class="tc-def">某些具有<mark>癌变倾向</mark>的良性病变，如长期未治愈即可能转变为癌。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--ct)">
+  <div class="tc-head"><span class="tc-num">19</span><span class="tc-name">角化珠 / 癌珠</span></div>
+  <p class="tc-def">分化好的鳞癌形成的癌巢中央有<mark>同心圆状角化物</mark>。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--ct)">
+  <div class="tc-head"><span class="tc-num">20</span><span class="tc-name">原位癌</span></div>
+  <p class="tc-def">癌变仅限于<mark>上皮层</mark>而未突破<mark>基膜</mark>。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--ct)">
+  <div class="tc-head"><span class="tc-num">21</span><span class="tc-name">浸润性癌</span></div>
+  <p class="tc-def">原位癌继续发展，<mark>突破基膜</mark>而浸润至真皮或黏膜下层。</p>
+</div>
+</div>
+
+<!-- 心血管疾病 -->
+<div class="cat-label" style="--cat-c:var(--cp)">心血管疾病</div>
+<div class="term-grid">
+
+<div class="tc" style="--cat-c:var(--cp)">
+  <div class="tc-head"><span class="tc-num">22</span><span class="tc-name">心绞痛</span></div>
+  <p class="tc-def">心脏<mark>急性暂时性缺血缺氧</mark>所致的以<mark>胸痛</mark>为特点的临床综合征。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--cp)">
+  <div class="tc-head"><span class="tc-num">23</span><span class="tc-name">心肌梗死</span></div>
+  <p class="tc-def">心肌由于<mark>严重持续性缺氧</mark>而引起的坏死。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--cp)">
+  <div class="tc-head"><span class="tc-num">24</span><span class="tc-name">风湿病</span></div>
+  <p class="tc-def">与<mark>A族乙型溶血性链球菌</mark>感染有关的<mark>超敏反应</mark>性疾病，病变主要累及全身<mark>结缔组织</mark>。</p>
+</div>
+</div>
+
+<!-- 呼吸系统 -->
+<div class="cat-label" style="--cat-c:var(--cr)">呼吸系统</div>
+<div class="term-grid">
+
+<div class="tc" style="--cat-c:var(--cr)">
+  <div class="tc-head"><span class="tc-num">25</span><span class="tc-name">大叶性肺炎</span></div>
+  <p class="tc-def">主要由<mark>肺炎链球菌</mark>引起的以肺泡内弥漫性<mark>纤维素渗出</mark>为主的炎症。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--cr)">
+  <div class="tc-head"><span class="tc-num">26</span><span class="tc-name">肺肉质变</span></div>
+  <p class="tc-def">大量纤维素被<mark>肉芽组织</mark>取代而发生<mark>机化</mark>，使病变肺组织呈<mark>褐色肉样</mark>。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--cr)">
+  <div class="tc-head"><span class="tc-num">27</span><span class="tc-name">小叶性肺炎</span></div>
+  <p class="tc-def">主要由<mark>化脓菌</mark>引起，以<mark>肺小叶</mark>为单位的急性<mark>化脓性</mark>炎症性疾病。</p>
+</div>
+
+<div class="tc" style="--cat-c:var(--cr)">
+  <div class="tc-head"><span class="tc-num">28</span><span class="tc-name">慢性阻塞性肺疾病（COPD）</span></div>
+  <p class="tc-def">一组慢性肺实质及小气道受损引起<mark>慢性气道阻塞</mark>、<mark>呼吸阻力增加</mark>和<mark>肺功能不全</mark>为共同特征的肺疾病统称。</p>
+</div>
+</div>
+
+</section>
+
+<!-- ──────── SECTION 2: 知识点 ──────── -->
+<section id="knowledge" class="sec">
+<div class="sec-hd"><h2>二、知识点整理</h2><span class="badge">95条</span></div>
+
+<!-- 基础病理 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--ac)"></span>病理学基础</div>
+<ol class="k-list">
+  <li class="ki">最常用的病理学研究方法是<mark>活体组织检查</mark>。</li>
+  <li class="ki">
+    病理过程分类：<br>
+    <strong>局部</strong>：血栓形成、栓塞、梗死、炎症<br>
+    <strong>全身</strong>：发热、休克、弥散性血管内凝血
+  </li>
+  <li class="ki">病理状态举例：烧伤后的<mark>皮肤瘢痕</mark>、关节炎后的<mark>关节强直</mark>。</li>
+  <li class="ki">疾病发生原因中最常见的是<mark>生物性因素</mark>。</li>
+  <li class="ki">适应在形态上表现为<mark>萎缩、肥大、增生、化生</mark>。</li>
+</ol>
+</div>
+
+<!-- 细胞适应与损伤 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--cc)"></span>细胞适应与损伤</div>
+<ol class="k-list">
+  <li class="ki">萎缩类型：
+    <table class="cmp-tbl">
+      <tr><th>类型</th><th>举例</th></tr>
+      <tr><td><strong>营养不良性</strong></td><td>动脉粥样硬化、肾缺血、食道癌</td></tr>
+      <tr><td><strong>压迫性</strong></td><td>肾盂积水、脑积水</td></tr>
+      <tr><td><strong>失用性</strong></td><td>骨折后肢体长期固定→废用性萎缩</td></tr>
+      <tr><td><strong>神经损伤性</strong></td><td>脊髓灰质炎→肌肉萎缩</td></tr>
+      <tr><td><strong>内分泌性</strong></td><td>卵巢切除→子宫萎缩</td></tr>
+      <tr><td><strong>其他</strong></td><td>鼻咽癌→涎腺萎缩</td></tr>
+    </table>
+  </li>
+  <li class="ki">萎缩病理变化中电镜下可见<mark>脂褐素</mark>。</li>
+  <li class="ki">化生类型：
+    <table class="cmp-tbl">
+      <tr><th>类型</th><th>过程</th></tr>
+      <tr><td><strong>鳞状上皮化生</strong></td><td>柱状上皮（子宫颈管、支气管腺上皮）/ 移行上皮 → 鳞状上皮</td></tr>
+      <tr><td><strong>肠上皮化生</strong></td><td>萎缩性胃炎时胃黏膜上皮</td></tr>
+      <tr><td><strong>结缔组织化生</strong></td><td>骨化性肌炎→形成骨组织</td></tr>
+    </table>
+  </li>
+  <li class="ki">细胞水肿好发部位：<mark>心、肝、肾</mark>。</li>
+  <li class="ki">脂肪变性好发部位：<mark>心、肝、肾</mark>，<strong>肝最常见</strong>。</li>
+  <li class="ki">心肌脂肪变性可出现<mark>虎斑心</mark>。</li>
+  <li class="ki">血管玻璃样变性常见于<mark>高血压病</mark>时的<mark>全身细动脉</mark>。</li>
+</ol>
+</div>
+
+<!-- 坏死与修复 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--cb)"></span>坏死与修复</div>
+<ol class="k-list">
+  <li class="ki"><mark>细胞核的变化</mark>是细胞坏死的主要形态学标志：表现为<mark>核固缩、核碎裂、核溶解</mark>。</li>
+  <li class="ki">坏死类型：
+    <table class="cmp-tbl">
+      <tr><th>类型</th><th>特点</th><th>部位 / 举例</th></tr>
+      <tr><td><strong>凝固性坏死</strong></td><td>组织灰白、干燥、质实</td><td>心、肾、脾</td></tr>
+      <tr><td><strong>液化性坏死</strong></td><td>组织液化</td><td>最常见于<mark>脑组织</mark>（脑软化）</td></tr>
+      <tr><td><strong>坏疽</strong></td><td>见下表</td><td>—</td></tr>
+      <tr><td><strong>纤维素样坏死</strong></td><td>结缔组织小血管壁</td><td>风湿病、恶性高血压</td></tr>
+    </table>
+    <div class="note">坏疽分型对比 ↓</div>
+    <table class="cmp-tbl">
+      <tr><th>分型</th><th>部位</th><th>特点</th></tr>
+      <tr><td><strong>干性</strong></td><td>四肢（下肢远端）</td><td>与健康组织<mark>界限分明</mark></td></tr>
+      <tr><td><strong>湿性</strong></td><td>与外界相通的内脏（肺、肠、子宫、阑尾）</td><td>界限<mark>不明显</mark>，可引起全身中毒</td></tr>
+      <tr><td><strong>气性</strong></td><td>肌肉深部开放性创伤</td><td>合并<mark>产气荚膜杆菌</mark>感染</td></tr>
+    </table>
+  </li>
+  <li class="ki">细胞再生能力分类：
+    <table class="cmp-tbl">
+      <tr><th>类型</th><th>细胞</th></tr>
+      <tr><td><strong>不稳定细胞</strong></td><td>表皮细胞、淋巴细胞、造血细胞、黏膜及腺体上皮</td></tr>
+      <tr><td><strong>稳定细胞</strong></td><td>肝、肾、胰腺、涎腺、皮脂腺；间叶组织（成纤维细胞、骨母细胞、平滑肌细胞、内皮细胞等）</td></tr>
+      <tr><td><strong>永久性细胞</strong></td><td>中枢神经细胞、周围神经节细胞、骨骼肌、心肌细胞</td></tr>
+    </table>
+  </li>
+  <li class="ki">肉芽组织功能：①<mark>抗感染及保护创面</mark>；②<mark>填补创口和组织缺损</mark>；③<mark>机化</mark>坏死组织、凝血块和异物。</li>
+  <li class="ki">骨折愈合过程：<mark>血肿形成</mark> → <mark>纤维性骨痂</mark> → <mark>骨性骨痂</mark> → <mark>骨痂改建/再塑</mark>。</li>
+</ol>
+</div>
+
+<!-- 血液循环障碍 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--cb)"></span>血液循环障碍</div>
+<ol class="k-list">
+  <li class="ki">左心衰 → <mark>肺淤血</mark>，镜下可见<mark>心衰细胞</mark>。</li>
+  <li class="ki">慢性肝淤血常见于<mark>右心衰</mark>，可形成<mark>槟榔肝</mark>，后发展为<mark>淤血性肝硬化</mark>。</li>
+  <li class="ki">血栓形成条件：①<mark>心血管内皮细胞损伤</mark>；②<mark>血流状态改变</mark>；③<mark>血液凝固性增加</mark>。</li>
+  <li class="ki"><mark>血小板活化</mark>在血栓形成中起关键作用，包括：<mark>粘附、释放、黏集</mark>三个反应。</li>
+  <li class="ki">延续性血栓形成顺序：<mark>白色血栓</mark> → <mark>混合性血栓</mark> → <mark>红色血栓</mark>。</li>
+  <li class="ki">血栓类型：白色血栓、混合性血栓、红色血栓、<mark>透明血栓</mark>。</li>
+  <li class="ki">栓子运行方向为<mark>顺血流方向</mark>。</li>
+  <li class="ki">栓塞规律：<br>
+    <strong>右心/体静脉</strong> → 肺动脉系统<br>
+    <strong>左心/肺静脉/体循环动脉</strong> → 脑、脾、肾、下肢<br>
+    <strong>门静脉系统</strong> → 肝内门静脉分支
+  </li>
+  <li class="ki"><mark>血栓栓塞</mark>为最常见栓塞类型。<strong>肺动脉栓塞</strong>约<mark>95%</mark>血栓栓子来自<mark>下肢深部静脉</mark>（腘静脉、股静脉、髂静脉）。</li>
+  <li class="ki">特殊栓塞：<br>
+    <strong>氮气栓塞</strong>（沉箱病/减压病）→ 潜水员<br>
+    <strong>脂肪栓塞</strong> → 长骨粉碎性骨折 / 严重脂肪组织挫伤<br>
+    <strong>羊水栓塞</strong> → 分娩
+  </li>
+  <li class="ki">梗死类型：
+    <table class="cmp-tbl">
+      <tr><th>类型</th><th>坏死性质</th><th>部位</th><th>形状</th></tr>
+      <tr><td><strong>贫血性梗死</strong></td><td>凝固性坏死</td><td>心、肾、脑、脾</td><td>脾肾：锥体形；心：不规则/地图形；脑：不规则状</td></tr>
+      <tr><td><strong>出血性梗死</strong></td><td>液化性坏死</td><td>肺、肠</td><td>肺：锥体形；肠：节段状</td></tr>
+    </table>
+  </li>
+</ol>
+</div>
+
+<!-- 炎症 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--ci)"></span>炎症</div>
+<ol class="k-list">
+  <li class="ki">炎症基本病变：<mark>变质、渗出、增生</mark>。</li>
+  <li class="ki">白细胞渗出过程：<mark>附壁</mark> → <mark>黏附</mark> → <mark>游出</mark> → <mark>趋化作用</mark>。</li>
+  <li class="ki">形态学分类：<mark>变质性炎、渗出性炎、增生性炎</mark>。</li>
+  <li class="ki">变质性炎多由<mark>病毒或毒素</mark>引起，如：病毒性肝炎、乙型脑炎、脊髓灰质炎、白喉外毒素→心肌炎、伤寒内毒素→肌肉蜡样坏死。</li>
+  <li class="ki">渗出性炎分类：
+    <table class="cmp-tbl">
+      <tr><th>类型</th><th>好发部位</th><th>举例</th></tr>
+      <tr><td><strong>浆液性炎</strong></td><td>浆膜、黏膜、疏松结缔组织</td><td>—</td></tr>
+      <tr><td><strong>纤维素性炎</strong></td><td>浆膜、黏膜、肺组织</td><td>绒毛心；咽/气管白喉；菌痢；大叶性肺炎</td></tr>
+      <tr><td><strong>化脓性炎</strong></td><td>—</td><td>蜂窝织炎、脓肿、表面化脓和积脓</td></tr>
+      <tr><td><strong>出血性炎</strong></td><td>—</td><td>—</td></tr>
+    </table>
+  </li>
+  <li class="ki">特异性增生性炎中，肉芽肿形成是由于<mark>巨噬细胞增生</mark>。</li>
+</ol>
+</div>
+
+<!-- 肿瘤 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--ct)"></span>肿瘤</div>
+<ol class="k-list">
+  <li class="ki">肿瘤最基本生物学特征：<mark>无限增殖</mark>与<mark>分化异常</mark>。</li>
+  <li class="ki">异型性与分化程度：<br>
+    良性：分化<mark>高</mark> → 异型性<mark>小</mark><br>
+    恶性：分化<mark>低</mark> → 异型性<mark>大</mark>
+    <div class="note">口诀：分化高→异型小→恶性低；分化低→异型大→恶性高</div>
+  </li>
+  <li class="ki">生长方式：<mark>膨胀性生长、浸润性生长、外生性生长</mark>。</li>
+  <li class="ki">转移方式：<br>
+    <mark>淋巴道转移</mark> — 癌常见<br>
+    <mark>血道转移</mark> — 肉瘤常见<br>
+    <mark>种植性转移</mark>
+  </li>
+  <li class="ki">胃癌 → 可逆流转移至<mark>左锁骨上淋巴结</mark>。</li>
+  <li class="ki">血源性转移瘤形态：多个散在、<mark>球形、边界清楚</mark>。</li>
+  <li class="ki">常见癌前病变：<mark>黏膜白斑、纤维囊性乳腺病、结直肠腺瘤、慢性萎缩性胃炎、胃溃疡</mark>。</li>
+</ol>
+</div>
+
+<!-- 心血管疾病 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--cp)"></span>心血管疾病</div>
+<ol class="k-list">
+  <li class="ki">动脉粥样硬化：血脂异常 → 脂质沉积于<mark>大中动脉内膜</mark> → <mark>粥样斑块</mark>。</li>
+  <li class="ki"><mark>低密度脂蛋白（LDL）</mark>与动脉粥样硬化和冠心病的发生极为密切。</li>
+  <li class="ki">粥样斑块继发变化/并发症：斑块内出血、斑块溃疡、血栓形成、钙化、<mark>动脉瘤形成</mark>（<strong>最危险最严重</strong>）。</li>
+  <li class="ki">主动脉粥样硬化严重程度：<mark>腹主动脉 > 胸主动脉 > 主动脉弓 > 升主动脉</mark>。</li>
+  <li class="ki">冠状动脉粥样硬化最常发生于<mark>左冠状动脉前降支</mark>，其次为右冠状动脉干、左冠状动脉旋支。</li>
+  <li class="ki">冠心病类型：隐匿性心肌缺血、<mark>心绞痛</mark>、<mark>心肌梗死</mark>、心肌硬化、冠状动脉性猝死。</li>
+  <li class="ki">心肌梗死部位：
+    <table class="cmp-tbl">
+      <tr><th>供血动脉</th><th>比例</th><th>梗死部位</th></tr>
+      <tr><td><strong>左冠状动脉前降支</strong></td><td><mark>40%~50%</mark></td><td>左心室前壁、心尖部、室间隔前2/3</td></tr>
+      <tr><td><strong>右冠状动脉</strong></td><td><mark>30%~40%</mark></td><td>左心室后壁、室间隔后1/3、右心室大部</td></tr>
+      <tr><td><strong>左冠状动脉旋支</strong></td><td><mark>15%~20%</mark></td><td>左心室侧壁</td></tr>
+    </table>
+  </li>
+  <li class="ki">高血压病基本病变特征：<mark>全身细小动脉硬化</mark>。</li>
+  <li class="ki"><mark>向心性肥大</mark>：左心室代偿性肥大 → 出现<mark>牛心</mark>。</li>
+  <li class="ki">脑软化好发：<mark>基底节、丘脑、脑桥、小脑</mark>。</li>
+  <li class="ki">脑出血是高血压病<mark>最严重</mark>的并发症，常见于<mark>基底节、内囊</mark>。</li>
+  <li class="ki">风湿病分期：<mark>变质渗出期</mark> → <mark>增生期（肉芽肿期）</mark> → <mark>纤维化期</mark>。</li>
+  <li class="ki">风湿性心内膜炎主要侵犯心瓣膜，<mark>二尖瓣</mark>最常见。</li>
+  <li class="ki">风湿性心包炎 → <mark>绒毛心</mark>，听诊可闻及<mark>心包摩擦音</mark>。</li>
+</ol>
+</div>
+
+<!-- 呼吸系统 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--cr)"></span>呼吸系统</div>
+<ol class="k-list">
+  <li class="ki">大叶性肺炎好发：<mark>单侧</mark>，左/右肺<mark>下叶</mark>多见。</li>
+  <li class="ki">小叶性肺炎好发：<mark>双肺下叶</mark>；特征：以<mark>细支气管为中心</mark>的化脓性炎 / 以<mark>肺小叶</mark>为单位的急性化脓性炎。</li>
+  <li class="ki"><mark>病毒包涵体</mark>是诊断病毒性肝炎的重要依据。</li>
+  <li class="ki">慢性肺源性心脏病：心脏病变以<mark>右心室</mark>为主，出现<mark>横位心</mark>。</li>
+</ol>
+</div>
+
+<!-- 传染病 / 结核病 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--cl)"></span>结核病</div>
+<ol class="k-list">
+  <li class="ki">结核病原菌对人致病的主要是<mark>人型</mark>和<mark>牛型</mark>。</li>
+  <li class="ki">典型结核结节：中央<mark>干酪样坏死</mark> + 大量<mark>上皮样细胞</mark> + 一些<mark>朗汉斯巨细胞</mark> + 外周<mark>淋巴细胞</mark> + 少量成纤维细胞。</li>
+  <li class="ki">原发综合征：<mark>肺部原发病灶</mark> + <mark>结核性淋巴管炎</mark> + <mark>肺门淋巴结结核</mark>，X线呈<mark>哑铃状阴影</mark>。</li>
+  <li class="ki">原发性肺结核好发：<mark>肺上叶下部/肺下叶上部</mark>，靠近胸膜，<strong>右肺多见</strong>。</li>
+  <li class="ki">继发性肺结核好发：<mark>肺尖部</mark>，<strong>右肺多见</strong>。</li>
+  <li class="ki"><mark>浸润性肺结核</mark>是继发性肺结核<mark>最常见</mark>的临床类型。</li>
+  <li class="ki">肠结核溃疡与肠管长轴<mark>垂直</mark>，引起肠腔狭窄。<br>
+    <div class="note">对比：肠伤寒溃疡与肠管长轴<mark>平行</mark>，引起穿孔/出血。</div>
+  </li>
+</ol>
+</div>
+
+<!-- 消化系统 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--co)"></span>消化系统</div>
+<ol class="k-list">
+  <li class="ki">慢性胃炎最常见病因：<mark>幽门螺杆菌（Hp）</mark>感染。</li>
+  <li class="ki">慢性萎缩性胃炎光镜下可见<mark>肠上皮化生</mark>。</li>
+  <li class="ki">胃溃疡发生机制：
+    <div class="note">
+    <strong>胃溃疡</strong>：迷走神经功能↓ → 胃蠕动↓ → 食物潴留 → 胃窦G细胞 → 胃泌素↑ → 胃酸↑ → 溃疡<br>
+    <strong>十二指肠溃疡</strong>：迷走神经功能↑ → 胃液分泌↑↑ → 溃疡
+    </div>
+  </li>
+  <li class="ki">消化性溃疡并发症：<mark>出血</mark>（多见）、穿孔、幽门梗阻、癌变。</li>
+  <li class="ki">病毒性肝炎性质：<mark>变质性炎</mark>。</li>
+  <li class="ki">传播途径：甲肝 → <mark>消化道/粪-口</mark>；乙肝 → <mark>血液传播</mark>。</li>
+  <li class="ki"><mark>乙型肝炎病毒</mark>是我国门脉性肝硬化的主要原因。</li>
+  <li class="ki">门脉高压症表现：<mark>脾肿大</mark>、消化功能不良、<mark>腹水</mark>、<mark>侧支循环建立</mark>。</li>
+  <li class="ki"><mark>雌激素增多</mark> → <mark>蜘蛛痣</mark>和<mark>肝掌</mark>。</li>
+</ol>
+</div>
+
+<!-- 泌尿系统 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--ck)"></span>泌尿系统</div>
+<ol class="k-list">
+  <li class="ki">肾小球毛细血管丛周边部：<mark>毛细血管内皮细胞</mark> + <mark>基膜</mark> + <mark>肾球囊脏层上皮细胞</mark>。</li>
+  <li class="ki">肾病综合征（三高一低）：<mark>高蛋白尿、低蛋白血症、高度水肿、高脂血症</mark>及脂性尿。</li>
+  <li class="ki">毛细血管内增生性肾小球肾炎 = <mark>急性肾炎</mark> = 链球菌感染后肾炎 = <mark>大红肾/蚤咬肾</mark>，特征：<mark>内皮细胞和系膜细胞增生</mark>。</li>
+  <li class="ki">膜性肾小球病 = <mark>大白肾</mark>，特征：<mark>基膜弥漫性增厚</mark>，银染色见<mark>钉突</mark>。</li>
+  <li class="ki">膜性肾小球病是引起<mark>肾病综合征</mark>常见原因之一。</li>
+  <li class="ki">慢性硬化性肾小球肾炎：特征为<mark>肾小球硬化、纤维化</mark>，出现<mark>玻璃样变性</mark>。</li>
+  <li class="ki">急性肾盂肾炎感染途径：
+    <table class="cmp-tbl">
+      <tr><th>途径</th><th>病原菌</th><th>备注</th></tr>
+      <tr><td><strong>上行性感染</strong></td><td><mark>大肠杆菌</mark></td><td>常见类型</td></tr>
+      <tr><td><strong>下行性（血源性）感染</strong></td><td><mark>金黄色葡萄球菌</mark></td><td>—</td></tr>
+    </table>
+  </li>
+</ol>
+</div>
+
+<!-- 传染病（伤寒、菌痢、流脑、乙脑） -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--cl)"></span>传染病</div>
+<ol class="k-list">
+  <li class="ki">伤寒：全身<mark>单核巨噬细胞系统</mark>的急性<mark>增生性炎</mark>。</li>
+  <li class="ki">细菌性痢疾：<mark>纤维素性炎</mark>，部位在<mark>乙状结肠和直肠</mark>。过程：卡他性炎 → 假膜性炎及溃疡（<mark>地图状</mark>）→ 愈合。</li>
+  <li class="ki">流脑：<mark>脑膜炎奈瑟菌</mark> → 急性呼吸道传染病 → <mark>脑脊髓膜急性化脓性炎</mark>。</li>
+  <li class="ki">乙脑：<mark>乙型脑炎病毒</mark> → 中枢神经系统急性传染病 → <mark>中枢神经系统变质性炎</mark>。</li>
+</ol>
+</div>
+
+<!-- DIC / 休克 / 其它 -->
+<div class="kg">
+<div class="kg-hd"><span class="kg-icon" style="background:var(--tx2)"></span>DIC、休克与其它</div>
+<ol class="k-list">
+  <li class="ki">DIC：血液由<mark>高凝</mark>转向<mark>低凝</mark> → 出血倾向。临床表现：出血、休克、器官功能障碍、溶血性贫血。</li>
+  <li class="ki">休克最易发生类型：<mark>感染性休克</mark>（内毒素性）；青霉素过敏 → <mark>过敏性休克</mark>。</li>
+  <li class="ki"><mark>微循环障碍</mark>是休克发生发展的<mark>共同发病环节</mark>。</li>
+  <li class="ki">休克时<mark>肾脏</mark>是<mark>最早受损害</mark>的器官。</li>
+  <li class="ki">假性神经递质：<mark>苯乙醇胺、羟苯乙醇胺</mark><br>正常神经递质：<mark>去甲肾上腺素、多巴胺</mark></li>
+</ol>
+</div>
+
+</section>
+
+<!-- ──────── SECTION 3: 简答题 ──────── -->
+<section id="essay" class="sec">
+<div class="sec-hd"><h2>三、简答题</h2><span class="badge">9题 · 点击展开</span></div>
+
+<!-- Q1 -->
+<div class="ep">
+  <div class="ep-hd" onclick="toggle(this)">
+    <span class="ep-arrow">▶</span>
+    <span class="ep-title">1. 肉芽组织的病理变化特点</span>
+  </div>
+  <div class="ep-body"><div class="ep-content">
+    <p class="sub-q">肉眼：</p>
+    <p>呈<mark>鲜红色</mark>，<mark>颗粒状</mark>，质地<mark>柔软</mark>，似鲜嫩肉芽，触之<mark>易出血</mark>，<mark>无痛觉</mark>。</p>
+    <p class="sub-q">镜下：</p>
+    <ol>
+      <li>向创面<mark>垂直生长</mark>，以小动脉为轴心，形成<mark>襻状弯曲的毛细血管网</mark>；</li>
+      <li>新生毛细血管之间有大量<mark>成纤维细胞</mark>；</li>
+      <li>肉芽组织内常有不同程度<mark>炎细胞浸润</mark>。</li>
+    </ol>
+  </div></div>
+</div>
+
+<!-- Q2 -->
+<div class="ep">
+  <div class="ep-hd" onclick="toggle(this)">
+    <span class="ep-arrow">▶</span>
+    <span class="ep-title">2. 渗出液的作用</span>
+  </div>
+  <div class="ep-body"><div class="ep-content">
+    <p class="sub-q">利：</p>
+    <ol>
+      <li><strong>防御</strong>：稀释、中和毒素，运走毒性代谢产物；</li>
+      <li><strong>杀菌</strong>：带来抗体和补体，杀灭病原微生物；</li>
+      <li><strong>防扩散</strong>：<mark>纤维素网</mark>网罗细菌，局限炎症，防止蔓延；纤维素支架和调理素有利于表面吞噬作用。</li>
+    </ol>
+    <p class="sub-q">弊：</p>
+    <ol>
+      <li><strong>压迫</strong>：心包腔及胸膜腔渗出液过多 → 妨碍心肺活动；</li>
+      <li><strong>粘连</strong>：过多纤维素发生机化 → 引起器官粘连。</li>
+    </ol>
+  </div></div>
+</div>
+
+<!-- Q3 -->
+<div class="ep">
+  <div class="ep-hd" onclick="toggle(this)">
+    <span class="ep-arrow">▶</span>
+    <span class="ep-title">3. 炎症介质的主要作用</span>
+  </div>
+  <div class="ep-body"><div class="ep-content">
+    <ol>
+      <li>扩张细动脉和细静脉，<mark>血管壁通透性增高</mark>；</li>
+      <li>有<mark>致癌和致热</mark>的生物活性；</li>
+      <li><mark>白细胞趋化作用</mark>。</li>
+    </ol>
+  </div></div>
+</div>
+
+<!-- Q4 -->
+<div class="ep">
+  <div class="ep-hd" onclick="toggle(this)">
+    <span class="ep-arrow">▶</span>
+    <span class="ep-title">4. 动脉粥样硬化的基本病理变化</span>
+  </div>
+  <div class="ep-body"><div class="ep-content">
+    <p class="sub-q">① 脂纹及脂斑</p>
+    <p><strong>肉眼</strong>：动脉内膜面可见黄色针头帽大小的斑点或宽约1~2mm的淡黄色条纹，平坦或微隆起。</p>
+    <p><strong>镜下</strong>：内膜下大量<mark>泡沫细胞</mark>聚集（大部分巨噬细胞来源，少部分平滑肌细胞来源）；SMC及较多细胞外基质；少量胆固醇、WBC。</p>
+
+    <p class="sub-q">② 纤维斑块</p>
+    <p><strong>肉眼</strong>：内膜表面隆起的<mark>灰黄色纤维斑块</mark>。</p>
+    <p><strong>镜下</strong>：表面<mark>纤维帽</mark>，其下为增生的平滑肌细胞、巨噬细胞、泡沫细胞，以及细胞外脂质和基质及炎细胞。</p>
+
+    <p class="sub-q">③ 粥样斑块</p>
+    <p><strong>肉眼</strong>：内膜面明显隆起的灰黄色斑块，切面表层白色质硬，深层<mark>黄色/黄白色质软粥样物质</mark>。</p>
+    <p><strong>镜下</strong>：表层纤维帽；深层大量<mark>无定形坏死崩解产物</mark>、<mark>胆固醇结晶</mark>和<mark>钙盐沉积</mark>；可见肉芽组织、泡沫细胞和淋巴细胞；中膜因压迫变薄。</p>
+  </div></div>
+</div>
+
+<!-- Q5 -->
+<div class="ep">
+  <div class="ep-hd" onclick="toggle(this)">
+    <span class="ep-arrow">▶</span>
+    <span class="ep-title">5. 大叶性肺炎各期病理变化</span>
+  </div>
+  <div class="ep-body"><div class="ep-content">
+
+    <p class="sub-q">① 充血水肿期</p>
+    <table class="cmp-tbl">
+      <tr><th>肉眼</th><td>肺叶肿胀，重量增加，呈<mark>暗红色</mark>，切面湿润可挤出血性浆液</td></tr>
+      <tr><th>镜下</th><td>毛细血管扩张充血，肺泡腔内有浆液、少量红细胞、中性粒细胞、巨噬细胞，可检出肺炎链球菌</td></tr>
+      <tr><th>痰</th><td><mark>粉红色泡沫样痰</mark></td></tr>
+    </table>
+
+    <p class="sub-q">② 红色肝样变期</p>
+    <table class="cmp-tbl">
+      <tr><th>肉眼</th><td>肺叶肿胀，色<mark>暗红</mark>，<mark>质实如肝</mark>，切面颗粒状</td></tr>
+      <tr><th>镜下</th><td>大量<mark>纤维素、红细胞</mark>及一些中性粒细胞、巨噬细胞渗出，可检出肺炎链球菌</td></tr>
+      <tr><th>痰</th><td><mark>铁锈色痰</mark></td></tr>
+    </table>
+
+    <p class="sub-q">③ 灰色肝样变期</p>
+    <table class="cmp-tbl">
+      <tr><th>肉眼</th><td>充血消退，由暗红转为<mark>灰白色</mark>，质实如肝</td></tr>
+      <tr><th>镜下</th><td>纤维素增多，压迫毛细血管致贫血；大量中性粒细胞和巨噬细胞；<mark>已无病菌</mark></td></tr>
+      <tr><th>痰</th><td><mark>黄脓痰</mark></td></tr>
+    </table>
+
+    <p class="sub-q">④ 溶解消散期</p>
+    <table class="cmp-tbl">
+      <tr><th>肉眼</th><td>肺组织质地变软，颗粒状消失，脓样浑浊液流出</td></tr>
+      <tr><th>镜下</th><td>脓细胞崩解释放蛋白水解酶 → 纤维素溶解（咳出/淋巴管吸收/巨噬细胞吞噬）→ 肺泡净化</td></tr>
+      <tr><th>痰</th><td><mark>稀薄脓性痰</mark></td></tr>
+    </table>
+
+  </div></div>
+</div>
+
+<!-- Q6 -->
+<div class="ep">
+  <div class="ep-hd" onclick="toggle(this)">
+    <span class="ep-arrow">▶</span>
+    <span class="ep-title">6. 胃溃疡的病理变化</span>
+  </div>
+  <div class="ep-body"><div class="ep-content">
+    <p class="sub-q">肉眼：</p>
+    <ol>
+      <li>多发生在<mark>胃小弯</mark>，愈近幽门处愈多见，多为<mark>单发</mark>；</li>
+      <li>呈<mark>圆形或椭圆形</mark>，直径一般在<mark>2cm</mark>以内；</li>
+      <li>溃疡边缘整齐如刀割状；周围黏膜皱襞呈以溃疡为中心的<mark>星芒状</mark>；切面有时呈<mark>斜漏斗状</mark>，尖端指向贲门。</li>
+    </ol>
+    <p class="sub-q">镜下（由内到外四层结构）：</p>
+    <ol>
+      <li><mark>渗出层</mark>：少量炎性渗出物（中性粒细胞、纤维素）覆盖溃疡底表面；</li>
+      <li><mark>坏死层</mark>：无结构红染的坏死组织，有炎细胞浸润；</li>
+      <li><mark>肉芽组织层</mark>：新生毛细血管和成纤维细胞，有炎细胞浸润；</li>
+      <li><mark>瘢痕层</mark>：大量胶原纤维和少数纤维细胞。</li>
+    </ol>
+  </div></div>
+</div>
+
+<!-- Q7 -->
+<div class="ep">
+  <div class="ep-hd" onclick="toggle(this)">
+    <span class="ep-arrow">▶</span>
+    <span class="ep-title">7. 休克三期的微循环变化特点</span>
+  </div>
+  <div class="ep-body"><div class="ep-content">
+
+    <p class="sub-q">① 微循环缺血期（休克早期 / 代偿期）</p>
+    <p><strong>特点</strong>：<mark>少灌少流，灌少于流</mark></p>
+    <p>皮肤、内脏的微动脉、后微动脉、毛细血管前括约肌和微静脉、小静脉均<mark>持续痉挛</mark>，后微动脉和毛细血管前括约肌收缩更显著 → 前阻力↑↑ → 真毛细血管网大量关闭 → 动静脉吻合支开放 → 微循环灌流急剧减少 → <mark>组织缺血缺氧</mark>。</p>
+
+    <p class="sub-q">② 微循环淤血期（休克期 / 失代偿期）</p>
+    <p><strong>特点</strong>：<mark>灌多流少</mark></p>
+    <p>微动脉、后微动脉及前括约肌由收缩转为<mark>舒张</mark> → 前阻力↓ → 而微静脉仍收缩 → 后阻力↑ → 大量血液淤积微循环 → 回心血量急剧减少 → <mark>动脉血压显著下降</mark>。</p>
+
+    <p class="sub-q">③ 微循环凝血期（DIC期 / 休克难治期）</p>
+    <p><strong>特点</strong>：<mark>不灌不流</mark></p>
+    <p>微循环内广泛<mark>纤维蛋白（透明）血栓</mark>形成，常有局灶性或弥漫性出血 → 组织严重缺氧酸中毒 → <mark>变性坏死</mark> → 多脏器功能障碍（衰竭）→ <mark>动脉血压显著下降</mark>。</p>
+
+  </div></div>
+</div>
+
+<!-- Q8 -->
+<div class="ep">
+  <div class="ep-hd" onclick="toggle(this)">
+    <span class="ep-arrow">▶</span>
+    <span class="ep-title">8. 炎症的并发症</span>
+  </div>
+  <div class="ep-body"><div class="ep-content">
+    <ol>
+      <li><strong>转移性脓肿</strong>：脓液穿破脓膜，顺着组织间隙流注，或化脓菌进入血流，引起他处脓肿。</li>
+      <li><strong>窦道</strong>：深部组织的脓肿向外穿通体表或体腔，形成一个向外排脓的<mark>盲端管道</mark>。</li>
+      <li><strong>瘘管</strong>：脓肿同时向内外穿通（向内穿通自然管道，向外穿通体表），形成<mark>两个以上开口</mark>的通道。</li>
+      <li><strong>糜烂</strong>：表浅化脓 → 坏死组织脱落 → <mark>基膜以上</mark>的局限缺损。</li>
+      <li><strong>溃疡</strong>：表浅化脓 → 坏死组织脱落 → <mark>超过基膜</mark>的缺损。</li>
+      <li><strong>疖</strong>：金黄色葡萄球菌引起的<mark>单个毛囊、皮脂腺</mark>及其附近组织的脓肿。</li>
+      <li><strong>痈</strong>：多个疖融合，在皮下脂肪、筋膜组织形成<mark>多个互相沟通的脓肿</mark>。</li>
+    </ol>
+  </div></div>
+</div>
+
+<!-- Q9 -->
+<div class="ep">
+  <div class="ep-hd" onclick="toggle(this)">
+    <span class="ep-arrow">▶</span>
+    <span class="ep-title">9. 风湿病病变发展各期病理变化</span>
+  </div>
+  <div class="ep-body"><div class="ep-content">
+
+    <p class="sub-q">① 变质渗出期</p>
+    <p>结缔组织基质<mark>黏液样变性</mark>及胶原纤维发生<mark>纤维素样坏死</mark>，有浆液、纤维素和炎细胞渗出。</p>
+
+    <p class="sub-q">② 增生期（肉芽肿期）</p>
+    <p>细胞增生形成<mark>风湿小体</mark>（Aschoff body），其中为纤维素样坏死灶，周围有<mark>风湿细胞</mark>增生及少量淋巴细胞、单核细胞浸润。风湿细胞纵切面呈<mark>毛虫状</mark>，横切面如<mark>枭眼状</mark>。</p>
+
+    <p class="sub-q">③ 纤维化期</p>
+    <p>风湿小体发生纤维化，形成<mark>梭形瘢痕</mark>。</p>
+
+  </div></div>
+</div>
+
+</section>
+
+</div><!-- /.main -->
+
+<!-- ═══════════ SCRIPT ═══════════ -->
 <script>
-let allExpanded=false,flashcardMode=false,hideAnswerMode=false,showMasteredOnly=false;
-let fcIndex=0,flashcards=[];
-document.addEventListener('DOMContentLoaded',()=>{buildNav();buildFlashcards();loadMastered();updateStats();document.getElementById('searchInput').addEventListener('input',debounce(handleSearch,200));initSwipe();setTimeout(()=>document.getElementById('ch1')?.scrollIntoView({block:'start'}),100);});
-
-function toggleSidebar(){const sb=document.getElementById('sidebar'),ov=document.getElementById('sidebarOverlay');sb.classList.toggle('open');ov.classList.toggle('show',sb.classList.contains('open'));document.body.style.overflow=sb.classList.contains('open')?'hidden':'';}
-function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebarOverlay').classList.remove('show');document.body.style.overflow='';}
-
-function buildNav(){
-  const nav=document.getElementById('nav');
-  const parts=[{t:'病原生物学',ch:[1,2,3,4]},{t:'免疫学',ch:[5,6,7,8,9,10,11,12]}];
-  const c={1:'var(--red)',2:'var(--coral)',3:'var(--cyan)',4:'var(--slate)',5:'var(--blue)',6:'var(--navy)',7:'var(--purple)',8:'var(--green)',9:'var(--teal)',10:'var(--olive)',11:'var(--rose)',12:'var(--gold)'};
-  parts.forEach(p=>{
-    const g=document.createElement('div');g.className='nav-group-title';g.textContent=p.t;nav.appendChild(g);
-    p.ch.forEach(n=>{
-      const ch=document.getElementById('ch'+n);if(!ch)return;
-      const title=ch.querySelector('.chapter-title').textContent;
-      const cnt=ch.querySelectorAll('.card').length;
-      const a=document.createElement('a');a.className='nav-item';a.href='#ch'+n;
-      a.innerHTML=`<span class="nav-dot" style="background:${c[n]}"></span><span>${n}. ${title}</span><span class="nav-count">${cnt}</span>`;
-      a.addEventListener('click',e=>{e.preventDefault();closeSidebar();document.getElementById('ch'+n).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));a.classList.add('active');});
-      nav.appendChild(a);
-    });
-  });
-  const navObserver=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));const an=document.querySelector(`.nav-item[href="#${e.target.id}"]`);if(an)an.classList.add('active');}});},{rootMargin:'-15% 0px -70% 0px'});
-  document.querySelectorAll('.chapter').forEach(ch=>navObserver.observe(ch));
+function toggle(el){
+  const panel=el.closest('.ep');
+  panel.classList.toggle('open');
 }
-
-function toggleCard(h){h.closest('.card').classList.toggle('open');}
-function toggleAll(){allExpanded=!allExpanded;document.querySelectorAll('.card').forEach(c=>c.classList.toggle('open',allExpanded));document.getElementById('btnExpandAll')?.classList.toggle('active',allExpanded);}
-function buildFlashcards(){flashcards=[];document.querySelectorAll('.card[data-qa]').forEach(card=>{const p=card.dataset.qa.split('|');if(p.length===2)flashcards.push({q:p[0],a:p[1]});});}
-function toggleFlashcard(){flashcardMode=!flashcardMode;document.getElementById('mainContent').classList.toggle('flashcard-mode',flashcardMode);document.getElementById('btnFlashcard')?.classList.toggle('active',flashcardMode);if(flashcardMode){fcIndex=0;showFlashcard();}else document.getElementById('flashcard').classList.remove('flipped');}
-function showFlashcard(){if(!flashcards.length)return;const fc=document.getElementById('flashcard');fc.classList.remove('flipped');document.getElementById('fcFront').textContent=flashcards[fcIndex].q;document.getElementById('fcBack').innerHTML=flashcards[fcIndex].a.replace(/；/g,'；<br>');document.getElementById('flashcardCounter').textContent=`${fcIndex+1}/${flashcards.length}`;}
-function fcNext(){fcIndex=(fcIndex+1)%flashcards.length;showFlashcard();}
-function fcPrev(){fcIndex=(fcIndex-1+flashcards.length)%flashcards.length;showFlashcard();}
-function fcFlip(){document.getElementById('flashcard').classList.toggle('flipped');}
-function initSwipe(){let sx=0,sy=0,dx=0,dy=0;const el=document.getElementById('flashcard');el.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;dx=dy=0;},{passive:true});el.addEventListener('touchmove',e=>{dx=e.touches[0].clientX-sx;dy=e.touches[0].clientY-sy;},{passive:true});el.addEventListener('touchend',()=>{if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){dx<0?fcNext():fcPrev();}},{passive:true});}
-function toggleHideAnswer(){hideAnswerMode=!hideAnswerMode;document.querySelectorAll('.card').forEach(c=>c.classList.toggle('hide-answer',hideAnswerMode));document.getElementById('btnHideAnswer')?.classList.toggle('active',hideAnswerMode);}
-function toggleMaster(btn){btn.classList.toggle('done');const l=btn.closest('.card').querySelector('.card-label').textContent;const m=JSON.parse(localStorage.getItem('ip3')||'{}');btn.classList.contains('done')?m[l]=true:delete m[l];localStorage.setItem('ip3',JSON.stringify(m));updateStats();}
-function loadMastered(){const m=JSON.parse(localStorage.getItem('ip3')||'{}');document.querySelectorAll('.card').forEach(c=>{const l=c.querySelector('.card-label')?.textContent;if(l&&m[l]){const b=c.querySelector('.master-btn');if(b)b.classList.add('done');}});}
-function updateStats(){const t=document.querySelectorAll('.master-btn').length,d=document.querySelectorAll('.master-btn.done').length,p=t?Math.round(d/t*100):0;document.getElementById('statsFill').style.width=p+'%';document.getElementById('statsText').textContent=`${d}/${t} (${p}%)`;}
-function toggleShowMastered(){showMasteredOnly=!showMasteredOnly;document.querySelectorAll('.card').forEach(c=>{if(showMasteredOnly){const b=c.querySelector('.master-btn');c.style.display=b&&b.classList.contains('done')?'':'none';}else c.style.display='';});}
-function handleSearch(){const q=document.getElementById('searchInput').value.trim().toLowerCase();document.querySelectorAll('.card').forEach(c=>{c.querySelectorAll('mark').forEach(m=>m.replaceWith(document.createTextNode(m.textContent)));if(!q){c.classList.remove('search-hidden');return;}if(c.textContent.toLowerCase().includes(q)){c.classList.remove('search-hidden');c.classList.add('open');const l=c.querySelector('.card-label');if(l)hl(l,q);}else c.classList.add('search-hidden');});document.querySelectorAll('.chapter').forEach(ch=>{ch.style.display=(!q||ch.querySelectorAll('.card:not(.search-hidden)').length)?'':'none';});document.querySelectorAll('.part-divider').forEach(d=>{d.style.display=q?'none':'';});}
-function hl(el,q){const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),ns=[];while(w.nextNode())ns.push(w.currentNode);ns.forEach(n=>{const i=n.textContent.toLowerCase().indexOf(q);if(i===-1)return;try{const r=document.createRange();r.setStart(n,i);r.setEnd(n,i+q.length);const mk=document.createElement('mark');r.surroundContents(mk);}catch(e){/* skip unhighlightable match */}});}
-document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'){if(e.key==='Escape')e.target.blur();return;}const vc=[...document.querySelectorAll('.chapter:not([style*="display: none"]) .card:not(.search-hidden)')],oc=vc.filter(c=>c.classList.contains('open')),ci=oc.length?vc.indexOf(oc[oc.length-1]):-1;switch(e.key){case'j':case'J':e.preventDefault();if(flashcardMode){fcNext();return;}if(ci<vc.length-1){vc[ci+1].classList.add('open');vc[ci+1].scrollIntoView({behavior:'smooth',block:'center'});}break;case'k':case'K':e.preventDefault();if(flashcardMode){fcPrev();return;}if(ci>0){vc[ci].classList.remove('open');vc[ci-1].scrollIntoView({behavior:'smooth',block:'center'});}break;case'Enter':e.preventDefault();if(ci>=0)vc[ci].classList.toggle('open');break;case'f':case'F':toggleFlashcard();break;case'h':case'H':toggleHideAnswer();break;case'/':e.preventDefault();document.getElementById('searchInput').focus();break;}});
-function debounce(fn,d){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),d);};}
+// Active nav highlight
+const sections=document.querySelectorAll('.sec');
+const navLinks=document.querySelectorAll('.nav-links a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('on'));
+      const id=e.target.id;
+      const active=document.querySelector(`.nav-links a[href="#${id}"]`);
+      if(active)active.classList.add('on');
+    }
+  });
+},{rootMargin:'-80px 0px -60% 0px'});
+sections.forEach(s=>obs.observe(s));
 </script>
 
 </body>
